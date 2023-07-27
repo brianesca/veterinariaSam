@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veterinaria SAM</title>
+    <link rel="stylesheet" href="estilos/estiloSesion.css">
+</head>
+<body>
+    <body>
+        <div class="container">
+            <nav class="sidebar">
+                <header class="scroll-header">
+                    <div class="header-title">
+                        <button id="toggleSidebar">☰</button>
+                        <div class="header-logo">
+                            <a href="index.html">
+                                <img src="Imageneshtml/LogoSam2.png" alt="Logo">
+                            </a>
+                        </div>
+                    </div>
+                    <a href="sesion.html" class="header-button">
+                        <span id="nombreDeUsuario"></span>
+                        <img src="Imageneshtml/usuario.png" alt="Usuario">
+                    </a>
+                    <a href="compras.html" class="header-button">
+                        <img src="Imageneshtml/carritoo.png" alt="Carrito">
+                    </a>
+                </header>
+
+    
+                <ul>
+                    <li class="active"><a href="catalogoProductos.html">Productos</a></li>
+                <li class="active"><a href="contacto.html">Contacto</a></li>
+                <li class="active"><a href="citas.html">Agendar Cita</a></li>
+                <li class="active"><a href="somos.html">¿Quienes Somos?</a></li>
+                <li class="active"><a href="Dudas.html">Preguntas frecuentes</a></li>
+                </ul>
+            </nav>
+      
+
+    <div class="login-wrap" >
+
+        <div class="login-cerrar"  id="perfil">
+            <button class="btn danger btn-block singOut">Cerrar sesion</button>
+        </div >
+        <div class="login-html" id="formulario">
+            <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Ingresar</label>
+            <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Registrarse</label>
+            <div class="login-form">
+                <div class="sign-in-htm" >
+                    <div class="group">
+                        <label for="user" class="label">Correo:</label>
+                        <input id="log-email" type="text" class="input">
+                    </div>
+                    <div class="group">
+                        <label for="pass" class="label">contraseña</label>
+                        <input id="log-password" type="password" class="input" data-type="password">
+                    </div>
+                    <div class="group">
+                        <input id="check" type="checkbox" class="check" checked>
+                        <label for="check"><span class="icon"></span> Mantener sesion</label>
+                    </div>
+                    <div class="group">
+                        <input type="submit" class="button btn-loggin" value="Ingresar">
+                    </div>
+                    <div class="hr"></div>
+                    <div class="foot-lnk">
+                        <a href="#forgot">Olvidaste tu contraseña?</a>
+                    </div>
+                </div>
+                <div class="sign-up-htm">
+                    <div class="group">
+                        <label for="user" class="label">Nombre de usuario</label>
+                        <input id="reg-nombre" type="text" class="input">
+                    </div>
+                    <div class="group">
+                        <label for="pass" class="label" >Contraseña</label>
+                        <input type="password" class="input" id="reg-password" data-type="password">
+                    </div>
+                    <div class="group">
+                        <label for="pass" class="label">Repite la Contraseña</label>
+                        <input id="pass" type="password" class="input" data-type="password">
+                    </div>
+                    <div class="group">
+                        <label for="pass" class="label" >Ingresa tu correo</label>
+                        <input type="text" class="input" id="reg-email">
+                    </div>
+                    <div class="group">
+                        <input type="submit" class="button btn-registrar" value="Ingresar">
+                    </div>
+                    <div class="hr"></div>
+                    <div class="foot-lnk">
+                        <label for="tab-1">Ya tienes una cuenta?</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<footer>
+    <div class="footer-container">
+        <div class="social-media">
+            <ul>
+                <li><a href="https://www.facebook.com/profile.php?id=100094700436543&mibextid=LQQJ4d"
+                        target="_blank"><img src="Imageneshtml/logoFB.png" alt="Facebook"></a></li>
+                <li><a href="https://www.instagram.com/veterinarias.a.m/?igshid=OGQ5ZDc2ODk2ZA%3D%3D"
+                        target="_blank"><img src="Imageneshtml/logoIG.png" alt="Instagram"></a></li>
+                <li><a href="https://api.whatsapp.com/send?phone=1234567890" target="_blank"><img
+                            src="Imageneshtml/logoWA.png" alt="WhatsApp"></a></li>
+                <p>&copy; 2023 Veterinaria S.A.M Phantoms</p>
+                <p>Calle Glorieta de Fuente de Petróleos 340, Evolucion, 57700 Nezahualcóyotl, Méx.</p>
+            </ul>
+        </div>
+        <div class="footer-links">
+            <ul>
+                <li><a href="politica-privacidad.html">Política de Privacidad |</a></li>
+                <li><a href="#">Preguntas frecuentes | </a></li>
+                <li><a href="mailto:veterinariasam102@gmail.com">veterinariasam102@gmail.com</a></li>
+            </ul>
+        </div>
+        <div>
+            <br>
+        </div>
+    </div>
+</footer>
+
+ <!-- este alch igual no se de que sea, ya estaba cuando llegue jajaja 💀-->
+ <script>
+    document.getElementById('toggleSidebar').addEventListener('click', function () {
+        document.querySelector('.sidebar').classList.toggle('open');
+    });
+    let mostrador = document.getElementById("mostrador");
+    let seleccion = document.getElementById("seleccion");
+    let imgSeleccionada = document.getElementById("img");
+    let modeloSeleccionado = document.getElementById("modelo");
+    let descripSeleccionada = document.getElementById("descripcion");
+    let precioSeleccionado = document.getElementById("precio");
+    let descuentoSeleccionado = document.getElementById("descuento");
+
+    function cargar(item) {
+        quitarBordes();
+        mostrador.style.width = "60%";
+        seleccion.style.width = "40%";
+        seleccion.style.opacity = "1";
+        item.style.border = "2px solid red";
+
+        imgSeleccionada.src = item.getElementsByTagName("img")[0].src;
+
+        modeloSeleccionado.innerHTML = item.getElementsByTagName("p")[0].innerHTML;
+
+        descripSeleccionada.innerHTML = "Descripción del Poducto ";
+
+        precioSeleccionado.innerHTML = item.getElementsByTagName("span")[0].innerHTML;
+
+
+    }
+    function cerrar() {
+        mostrador.style.width = "100%";
+        seleccion.style.width = "0%";
+        seleccion.style.opacity = "0";
+        quitarBordes();
+    }
+    function quitarBordes() {
+        var items = document.getElementsByClassName("item");
+        for (i = 0; i < items.length; i++) {
+            items[i].style.border = "none";
+        }
+    }
+</script>
+
+
+<!-- este we se encarga de que el header se minimice al bajar o navegar en la pagina-->
+<script>
+    window.addEventListener('scroll', function () {
+        var header = document.querySelector('.scroll-header');
+        if (window.scrollY > 100) {
+            header.classList.add('small');
+        } else {
+            header.classList.remove('small');
+        }
+    });
+
+</script>
+
+<script>
+    document.addEventListener('click', function (event) {
+        var sidebar = document.querySelector('.sidebar');
+        var targetElement = event.target;
+
+        if (!sidebar.contains(targetElement) && targetElement.id !== 'toggleSidebar') {
+            sidebar.classList.remove('open');
+        }
+    });
+
+</script>
+
+<script>
+    var btnRegister = document.querySelector('.btn-registrar');
+    btnRegister.addEventListener('click', function (event) {
+        var targetElement = event.target;
+        const API_KEY = 'AIzaSyDZ7IbTIjCtdndYXe1-DV14l57FIU_iBlM';
+        const projectId = 'tu-id-de-proyecto';
+        const collectionName = 'nombre-de-la-coleccion';
+        const url = `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${API_KEY}`;
+        
+        alert(document.getElementById('reg-email').value);
+        const authData = {
+            email: document.getElementById('reg-email').value,
+            displayName: document.getElementById('reg-nombre').value,
+            password: document.getElementById('reg-password').value,
+            returnSecureToken: true,
+            role: "Admin" 
+        }
+        
+        console.log(authData);
+
+
+        // Realiza la petición POST
+        fetch(url, {
+            method: 'POST',
+            headers: {
+            'Content-Type': 'application/json' // Indica que los datos se enviarán en formato JSON
+            },
+            body: JSON.stringify(authData) // Convierte el objeto en formato JSON
+        })
+            .then(response => {
+            if (!response.ok) {
+                throw new Error('Error en la petición'); // Si la respuesta no es exitosa, lanza un error
+            }
+            return response.json(); // Convierte la respuesta a formato JSON
+            })
+            .then(data => {
+            // Aquí puedes manejar la respuesta del servidor
+            console.log('Respuesta del servidor:', data);
+            })
+            .catch(error => {
+            // Maneja los errores que puedan ocurrir durante la petición
+            console.error('Error:', error);
+            });
+
+
+
+
+
+    });
+
+</script>
+
+
+
+<script>
+    var btnLoggin = document.querySelector('.btn-loggin');
+    btnLoggin.addEventListener('click', function (event) {
+        var targetElement = event.target;
+        const API_KEY = 'AIzaSyDZ7IbTIjCtdndYXe1-DV14l57FIU_iBlM';
+        const url = `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${API_KEY}`;
+        
+        alert(document.getElementById('log-email').value);
+        const authData = {
+            email: document.getElementById('log-email').value,
+            password: document.getElementById('log-password').value,
+            returnSecureToken: true 
+        }
+        
+        console.log(authData);
+
+
+// Realiza la petición POST
+fetch(url, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json' // Indica que los datos se enviarán en formato JSON
+    },
+    body: JSON.stringify(authData) // Convierte el objeto en formato JSON
+  })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Error en la petición'); // Si la respuesta no es exitosa, lanza un error
+      }
+      return response.json(); // Convierte la respuesta a formato JSON
+    })
+    .then(data => {
+        
+        
+        
+        console.log(data.email);
+        console.log(data.displayName);
+        localStorage.setItem("nombre", data.displayName);
+        localStorage.setItem("email", data.email);
+        window.location.replace("index.html");
+      // Aquí puedes manejar la respuesta del servidor
+      console.log('Respuesta del servidor:', data);
+    })
+    .catch(error => {
+      // Maneja los errores que puedan ocurrir durante la petición
+      console.error('Error:', error);
+    });
+
+
+
+
+
+    });
+</script>
+
+
+
+<script>
+    (() => {
+        function documentReady() {
+          const miElemento = document.getElementById('nombreDeUsuario');
+          miElemento.textContent = localStorage.getItem("nombre");
+          const formulario = document.getElementById("formulario");
+        const perfil = document.getElementById("perfil");
+
+        if (localStorage.getItem("nombre") !== null ) {
+            formulario.style.display = "none";
+            perfil.style.display = "block";
+          } else {
+            formulario.style.display = "block";
+            perfil.style.display = "none";
+          }
+
+
+        }
+        document.addEventListener('DOMContentLoaded', documentReady);
+
+        var singOut = document.querySelector('.singOut');
+        singOut.addEventListener('click', function (event) {
+        var targetElement = event.target;
+        localStorage.removeItem("nombre");
+        localStorage.removeItem("email");
+        location.reload();
+
+    });
+      })();
+</script>
+</body>
+</html>

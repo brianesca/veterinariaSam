@@ -1,0 +1,540 @@
+body{
+	margin:0;
+	color:#6a6f8c;
+	background:#c8c8c8;
+	font:600 16px/18px 'Open Sans',sans-serif;
+}
+/* Encabezado */
+.header-logo {
+    margin-right: 20px;
+}
+
+.header-logo img {
+    width: 400px;
+    /* Ajusta el tamaño de la imagen según tus necesidades */
+}
+
+header {
+    background-color: rgb(255, 85, 0);
+    color: #fff;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.header-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    text-align: center;
+}
+
+h1 {
+    font-size: 2.5vw;
+    margin: 0;
+    margin-left: 20%;
+}
+
+#toggleSidebar {
+    font-size: 50px;
+    background-color: transparent;
+    border: none;
+    color: #000000;
+    cursor: pointer;
+    position: absolute;
+    left: 20px;
+}
+
+.scroll-header {
+    transition: all 0.3s ease;
+    background-color: rgba(255, 255, 255, 0.816);
+}
+
+.scroll-header.small {
+    padding: 10px;
+    height: 60px;
+    background-color: rgb(53, 6, 77);
+}
+
+.scroll-header.small h1 {
+    font-size: 1.5vw;
+}
+
+.scroll-header.small #toggleSidebar {
+    font-size: 30px;
+}
+
+.header-button {
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    margin: 0 40px; /* Modifica el margen horizontal para acercar las opciones */
+}
+
+.header-button img {
+    width: 45px;
+    /* Ajusta el tamaño de la imagen según tus necesidades */
+}
+
+/* Alinea las opciones al centro verticalmente */
+.header-title,
+.header-buttons {
+    display: flex;
+    align-items: center;
+}
+
+.dropdown {
+    position: relative;
+    margin-left: 10px;
+    /* Agregar margen entre las opciones */
+}
+
+.cart-button,
+.login-button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.cart-button img {
+    width: 30px;
+    /* Ajusta el tamaño de la imagen según tus necesidades */
+}
+
+.login-button {
+    font-size: 1.2vw;
+    /* Ajusta el tamaño de la fuente según tus necesidades */
+    color: #fff;
+}
+
+.login-options {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: rgb(255, 85, 0);
+    padding: 10px;
+    list-style: none;
+    margin: 0;
+    width: 150px;
+}
+
+.login-dropdown:hover .login-options {
+    display: block;
+}
+
+.login-options li {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-left: 5px;
+}
+
+.login-options a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.dropdown-button {
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+.dropdown-button img {
+    width: 25px;
+    height: 25px;
+}
+
+.dropdown-options {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: rgb(255, 85, 0);
+    padding: 10px;
+    list-style: none;
+    margin: 0;
+    width: 150px;
+}
+
+.dropdown:hover .dropdown-options {
+    display: block;
+}
+
+.dropdown-options li {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-left: 5px;
+}
+
+.dropdown-options a {
+    text-decoration: none;
+    color: #000000;
+}
+
+.dropdown-user {
+    margin-right: 10px;
+    /* Ajusta el valor según tu preferencia */
+}
+
+.dropdown-cart {
+    margin-right: 20px;
+    /* Ajusta el valor según tu preferencia */
+}
+
+
+
+/* Barra de navegación lateral */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0s linear 0.3s;
+    z-index: 999;
+}
+
+.overlay.active {
+    opacity: 1;
+    visibility: visible;
+    transition-delay: 0s;
+}
+
+.sidebar {
+    background-color: rgba(255, 255, 255, 0.762);
+    color: rgb(255, 255, 255);
+    width: 0;
+    overflow: hidden;
+    transition: width 0.3s ease-in-out;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    z-index: 1000;
+}
+
+.sidebar.open {
+    width: 250px;
+}
+
+.sidebar ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    margin-top: 55%;
+}
+
+.sidebar li {
+    margin-top: 20%;
+    margin-bottom: 10px;
+    padding-left: 5%;
+}
+
+.sidebar a {
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+}
+
+.sidebar li.active {
+    font-size: 2vw;
+}
+
+.sidebar li {
+    list-style-type: none;
+    padding: 5px;
+}
+
+.sidebar li:hover {
+    background-color: #000000;
+}
+
+.sidebar li:hover a {
+    color: #fff;
+}
+
+.sidebar a {
+    text-decoration: none;
+    color: rgb(255, 255, 255)000;
+    font-size: 2vw;
+}
+
+.sidebar li:hover {
+    background-color: rgb(255, 85, 0);
+}
+
+.sidebar li:hover a {
+    color: rgb(255, 255, 255);
+}
+*,:after,:before{box-sizing:border-box}
+.clearfix:after,.clearfix:before{content:'';display:table}
+.clearfix:after{clear:both;display:block}
+a{color:inherit;text-decoration:none}
+
+.login-wrap{
+	width:100%;
+	margin:auto;
+	max-width:525px;
+	min-height:670px;
+	position:relative;
+	background:url(https://raw.githubusercontent.com/khadkamhn/day-01-login-form/master/img/bg.jpg) no-repeat center;
+	box-shadow:0 12px 15px 0 rgba(0,0,0,.24),0 17px 50px 0 rgba(0,0,0,.19);
+}
+.login-html{
+	width:100%;
+	height:100%;
+	position:absolute;
+	padding:90px 70px 50px 70px;
+	background:rgba(255, 115, 0, 0.9);
+}
+
+.login-cerrar{
+	width:100%;
+	height:100%;
+	position:absolute;
+	padding:90px 70px 50px 70px;
+	background:rgba(255, 115, 0, 0.9);
+}
+.login-html .sign-in-htm,
+.login-html .sign-up-htm{
+	top:0;
+	left:0;
+	right:0;
+	bottom:0;
+	position:absolute;
+	transform:rotateY(180deg);
+	backface-visibility:hidden;
+	transition:all .4s linear;
+}
+.login-html .sign-in,
+.login-html .sign-up,
+.login-form .group .check{
+	display:none;
+}
+.login-html .tab,
+.login-form .group .label,
+.login-form .group .button{
+	text-transform:uppercase;
+}
+.login-html .tab{
+	font-size:22px;
+	margin-right:15px;
+	padding-bottom:5px;
+	margin:0 15px 10px 0;
+	display:inline-block;
+	border-bottom:2px solid transparent;
+}
+.login-html .sign-in:checked + .tab,
+.login-html .sign-up:checked + .tab{
+	color:#fff;
+	border-color:#1161ee;
+}
+.login-form{
+	min-height:345px;
+	position:relative;
+	perspective:1000px;
+	transform-style:preserve-3d;
+}
+.login-form .group{
+	margin-bottom:15px;
+}
+.login-form .group .label,
+.login-form .group .input,
+.login-form .group .button{
+	width:100%;
+	color:#fff;
+	display:block;
+}
+.login-form .group .input,
+.login-form .group .button{
+	border:none;
+	padding:15px 20px;
+	border-radius:25px;
+	background:rgba(255,255,255,.1);
+}
+.login-form .group input[data-type="password"]{
+	text-security:circle;
+	-webkit-text-security:circle;
+}
+.login-form .group .label{
+	color:#aaa;
+	font-size:12px;
+}
+.login-form .group .button{
+	background:rgb(255, 85, 0);
+}
+.login-form .group label .icon{
+	width:15px;
+	height:15px;
+	border-radius:2px;
+	position:relative;
+	display:inline-block;
+	background:rgba(255,255,255,.1);
+}
+.login-form .group label .icon:before,
+.login-form .group label .icon:after{
+	content:'';
+	width:10px;
+	height:2px;
+	background:#fff;
+	position:absolute;
+	transition:all .2s ease-in-out 0s;
+}
+.login-form .group label .icon:before{
+	left:3px;
+	width:5px;
+	bottom:6px;
+	transform:scale(0) rotate(0);
+}
+.login-form .group label .icon:after{
+	top:6px;
+	right:0;
+	transform:scale(0) rotate(0);
+}
+.login-form .group .check:checked + label{
+	color:#fff;
+}
+.login-form .group .check:checked + label .icon{
+	background:rgb(255, 85, 0);
+}
+.login-form .group .check:checked + label .icon:before{
+	transform:scale(1) rotate(45deg);
+}
+.login-form .group .check:checked + label .icon:after{
+	transform:scale(1) rotate(-45deg);
+}
+.login-html .sign-in:checked + .tab + .sign-up + .tab + .login-form .sign-in-htm{
+	transform:rotate(0);
+}
+.login-html .sign-up:checked + .tab + .login-form .sign-up-htm{
+	transform:rotate(0);
+}
+
+.hr{
+	height:2px;
+	margin:60px 0 50px 0;
+	background:rgba(255,255,255,.2);
+}
+.foot-lnk{
+	text-align:center;
+}
+
+.login-wrap{
+    margin-top: 10%;
+}
+
+/* Pie de página */
+footer {
+    background-color: rgb(53, 6, 77);
+    padding: 20px;
+    text-align: center;
+    font-size: 14px;
+    color: #fff;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.social-media ul {
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+}
+
+.social-media ul li {
+    margin-right: 10px;
+}
+
+.social-media ul li img {
+    transition: transform 0.3s ease;
+}
+
+.social-media ul li img:hover {
+    transform: scale(1.2);
+}
+
+.footer-info {
+    text-align: right;
+}
+
+
+.footer-container .social-media ul,
+.footer-container .footer-links ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-container .social-media ul li,
+.footer-container .footer-links ul li {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.footer-container .social-media ul li a,
+.footer-container .footer-links ul li a {
+    display: block;
+}
+
+.footer-container .footer-info p {
+    margin-bottom: 10px;
+}
+
+.footer-container .footer-links ul li a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.footer-container .footer-image img {
+    width: 30px;
+    height: 30px;
+}
+
+.footer-container .footer-image img:hover {
+    opacity: 0.7;
+}
+
+.footer-container .social-media ul li a img,
+.footer-container .footer-image img {
+    width: 20px;
+    height: 20px;
+}
+
+.btn-block{
+    width: 100%;
+    display: block;
+    margin-bottom: 5px;
+  }
+  .btn {
+    border: none; 
+    color: white; 
+    padding: 14px 28px; 
+    cursor: pointer; 
+    border-radius: 5px; 
+  }
+  .primary {background-color: #007bff;} 
+  .primary:hover {background: #0b7dda;}
+  .secondary {background-color: #e7e7e7; color: black;} 
+  .secondary:hover {background: #ddd;}
+  .success {background-color: #04AA6D;} 
+  .success:hover {background-color: #46a049;}
+  .warning {background-color: #ff9800;} 
+  .warning:hover {background: #e68a00;}
+  .danger {background-color: #f44336;} 
+  .danger:hover {background: #da190b;}
+  

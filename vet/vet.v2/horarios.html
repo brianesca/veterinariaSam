@@ -1,0 +1,54 @@
+<<!DOCTYPE html>
+<html>
+<head>
+    <title>Designar Horarios de Trabajadores</title>
+    <link rel="stylesheet" type="text/css" href="estilos/horarios.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Designar Horarios de Trabajadores</h1>
+        <form id="scheduleForm">
+            <label for="name">Nombre del Trabajador:</label>
+            <input type="text" id="name" required>
+
+            <label for="workerID">ID del Trabajador:</label>
+            <input type="text" id="workerID" required>
+
+            <label for="entryTime">Hora de Entrada:</label>
+            <input type="time" id="entryTime" required>
+
+            <label for="exitTime">Hora de Salida:</label>
+            <input type="time" id="exitTime" required>
+
+            <button type="button" id="addButton">Agregar Horario</button>
+        </form>
+
+        <ul id="scheduleList">
+            <!-- Aquí se mostrarán los horarios designados -->
+        </ul>
+    </div>
+
+
+    <script>
+
+const addButton = document.getElementById('addButton');
+const scheduleList = document.getElementById('scheduleList');
+const scheduleForm = document.getElementById('scheduleForm');
+
+addButton.addEventListener('click', () => {
+    const name = document.getElementById('name').value;
+    const workerID = document.getElementById('workerID').value;
+    const entryTime = document.getElementById('entryTime').value;
+    const exitTime = document.getElementById('exitTime').value;
+
+    const li = document.createElement('li');
+    li.textContent = `Nombre: ${name}, ID: ${workerID}, Hora de Entrada: ${entryTime}, Hora de Salida: ${exitTime}`;
+    scheduleList.appendChild(li);
+
+    // Limpiar el formulario después de agregar el horario
+    scheduleForm.reset();
+});
+
+</script>
+</body>
+</html>

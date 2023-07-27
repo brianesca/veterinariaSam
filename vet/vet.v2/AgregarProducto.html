@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Agregar Productos</title>
+    <link rel="stylesheet" type="text/css" href="estilos/agregar.css">
+</head>
+<body>
+    <h1>Agregar Productos</h1>
+    <form id="productForm">
+        <label for="productName">Nombre del Producto:</label>
+        <input type="text" id="productName" required>
+
+        <label for="productBrand">Marca:</label>
+        <input type="text" id="productBrand" required>
+
+        <label for="productID">ID:</label>
+        <input type="text" id="productID" required>
+
+        <button type="button" id="addButton">Agregar</button>
+        <button type="button" id="removeButton">Quitar</button>
+    </form>
+
+    <ul id="productList">
+        <!-- Aquí se mostrarán los productos agregados -->
+    </ul>
+<script>
+    const addButton = document.getElementById('addButton');
+const removeButton = document.getElementById('removeButton');
+const productList = document.getElementById('productList');
+const productForm = document.getElementById('productForm');
+
+addButton.addEventListener('click', () => {
+    const name = document.getElementById('productName').value;
+    const brand = document.getElementById('productBrand').value;
+    const id = document.getElementById('productID').value;
+
+    const li = document.createElement('li');
+    li.textContent = `Nombre: ${name}, Marca: ${brand}, ID: ${id}`;
+    productList.appendChild(li);
+
+    // Limpiar el formulario después de agregar el producto
+    productForm.reset();
+});
+
+removeButton.addEventListener('click', () => {
+    const items = productList.getElementsByTagName('li');
+    if (items.length > 0) {
+        productList.removeChild(items[items.length - 1]);
+    }
+});
+
+</script>
+</body>
+</html>

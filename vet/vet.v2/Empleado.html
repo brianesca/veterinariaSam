@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Agregar Empleado</title>
+    <link rel="stylesheet" type="text/css" href="estilos/empleados.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Agregar Empleado</h1>
+        <form id="employeeForm">
+            <label for="firstName">Nombre:</label>
+            <input type="text" id="firstName" required>
+
+            <label for="lastName">Apellidos:</label>
+            <input type="text" id="lastName" required>
+
+            <label for="birthdate">Fecha de Nacimiento:</label>
+            <input type="date" id="birthdate" required>
+
+            <label for="area">Área a Trabajar:</label>
+            <input type="text" id="area" required>
+
+            <button type="button" id="addButton">Agregar Empleado</button>
+        </form>
+
+        <ul id="employeeList">
+            <!-- Aquí se mostrarán los empleados agregados -->
+        </ul>
+    </div>
+    <script>
+    const addButton = document.getElementById('addButton');
+const employeeList = document.getElementById('employeeList');
+const employeeForm = document.getElementById('employeeForm');
+
+addButton.addEventListener('click', () => {
+    const firstName = document.getElementById('firstName').value;
+    const lastName = document.getElementById('lastName').value;
+    const birthdate = document.getElementById('birthdate').value;
+    const area = document.getElementById('area').value;
+
+    const id = generateID(birthdate);
+
+    const li = document.createElement('li');
+    li.textContent = `ID: ${id}, Nombre: ${firstName} ${lastName}, Área: ${area}`;
+    employeeList.appendChild(li);
+
+    // Limpiar el formulario después de agregar el empleado
+    employeeForm.reset();
+});
+
+function generateID(birthdate) {
+    const date = new Date(birthdate);
+    const year = date.getFullYear().toString().substr(-2);
+    const month = (date.getMonth() + 1).toString().padStart(2, '0');
+    const day = date.getDate().toString().padStart(2, '0');
+    return `${year}${month}${day}`;
+}
+</script>
+</body>
+</html>
