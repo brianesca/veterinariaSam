@@ -1,11 +1,14 @@
 /* Estilos generales */
+
 body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
 }
 
+
 /* el icono de pinche whats que va siguiendo la navegacion alv */
+
 .whatsapp-icon {
     position: fixed;
     bottom: 20px;
@@ -42,9 +45,12 @@ body {
     margin-top: 5px;
 }
 
+
 /* ---------------------------------------- */
 
+
 /* seccion de productos que interesan */
+
 .buttonMasProductos {
     display: inline-block;
     padding: 10px 20px;
@@ -60,9 +66,6 @@ body {
     background-color: rgb(255, 85, 0);
 }
 
-
-
-
 .container {
     display: grid;
     grid-template-columns: 1fr;
@@ -71,10 +74,12 @@ body {
     position: relative;
 }
 
+
 /* ---------------------------------------- */
 
 
 /* Encabezado */
+
 .header-logo {
     margin-right: 20px;
 }
@@ -137,6 +142,10 @@ h1 {
     font-size: 1.5vw;
 }
 
+.scroll-header.small span {
+    color: white;
+}
+
 .scroll-header.small #toggleSidebar {
     font-size: 30px;
 }
@@ -146,7 +155,8 @@ h1 {
     border: none;
     padding: 0;
     cursor: pointer;
-    margin: 0 40px; /* Modifica el margen horizontal para acercar las opciones */
+    margin: 0 40px;
+    /* Modifica el margen horizontal para acercar las opciones */
 }
 
 .header-button img {
@@ -154,7 +164,9 @@ h1 {
     /* Ajusta el tamaño de la imagen según tus necesidades */
 }
 
+
 /* Alinea las opciones al centro verticalmente */
+
 .header-title,
 .header-buttons {
     display: flex;
@@ -262,8 +274,8 @@ h1 {
 }
 
 
-
 /* Barra de navegación lateral */
+
 .overlay {
     position: fixed;
     top: 0;
@@ -349,7 +361,9 @@ h1 {
     color: rgb(255, 255, 255);
 }
 
+
 /* Contenido principal */
+
 main {
     display: grid;
     grid-template-columns: 1fr;
@@ -369,6 +383,8 @@ h3 {
     font-size: 2vw;
     color: rgb(53, 6, 77);
 }
+
+
 /* ---------------------------------------- */
 
 
@@ -422,7 +438,10 @@ h3 {
     font-weight: bold;
     color: #333;
 }
+
+
 /* Estilos para los botones de cantidad */
+
 .quantity-btn {
     font-size: 18px;
     padding: 5px 10px;
@@ -431,7 +450,9 @@ h3 {
     cursor: pointer;
 }
 
+
 /* Estilos para el botón "Agregar al carrito" */
+
 .add-to-cart-btn {
     font-size: 14px;
     padding: 8px 15px;
@@ -441,25 +462,34 @@ h3 {
     cursor: pointer;
 }
 
+
 /* Estilos para el contenedor de los botones y el contador de cantidad */
+
 .product-controls {
     margin-top: 10px;
     display: flex;
     align-items: center;
 }
 
+
 /* Estilos para el contador de cantidad */
+
 .quantity-input {
     font-size: 16px;
     width: 40px;
     text-align: center;
     margin: 0 5px;
 }
+
+
 /* Estilos para el contador del carrito */
+
 .cart-counter {
     position: absolute;
-    top: -10px; /* Ajusta el valor para posicionar el contador donde desees */
-    right: -10px; /* Ajusta el valor para posicionar el contador donde desees */
+    top: -10px;
+    /* Ajusta el valor para posicionar el contador donde desees */
+    right: -10px;
+    /* Ajusta el valor para posicionar el contador donde desees */
     background-color: red;
     color: white;
     width: 20px;
@@ -469,28 +499,26 @@ h3 {
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 1; /* Asegúrate de que el z-index sea mayor que el z-index del carrito o cualquier otro elemento del header */
+    z-index: 1;
+    /* Asegúrate de que el z-index sea mayor que el z-index del carrito o cualquier otro elemento del header */
 }
 
 
 /* Media Queries para hacerlo responsivo */
+
 @media screen and (max-width: 768px) {
     .catalog {
         grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     }
-
     .product {
         max-width: 250px;
     }
-
     .product h3 {
         font-size: 1.1rem;
     }
-
     .product p {
         font-size: 0.8rem;
     }
-
     .product p.price {
         font-size: 1rem;
     }
@@ -500,19 +528,15 @@ h3 {
     .catalog {
         grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
     }
-
     .product {
         max-width: 200px;
     }
-
     .product h3 {
         font-size: 1rem;
     }
-
     .product p {
         font-size: 0.7rem;
     }
-
     .product p.price {
         font-size: 0.9rem;
     }
@@ -521,7 +545,9 @@ h3 {
 
 /* --------------------------------------------- */
 
+
 /* Estilos para seccion de info */
+
 .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -552,8 +578,8 @@ h3 {
     margin-bottom: 30px;
     padding: 20px;
     border-radius: 8px;
-    background-color:  rgb(53, 6, 77);
-    transition: background-color 0.3s; 
+    background-color: rgb(53, 6, 77);
+    transition: background-color 0.3s;
 }
 
 .info-box img {
@@ -577,41 +603,49 @@ h3 {
 
 .info-box li {
     font-size: 13px;
-    color: rgb(255, 255, 255); /* Color del texto en las etiquetas <li> */
+    color: rgb(255, 255, 255);
+    /* Color del texto en las etiquetas <li> */
     margin-bottom: 5px;
 }
 
+
 /* Cambiamos el color al pasar el cursor */
+
 .info-box:hover {
     background-color: rgb(255, 85, 0);
 }
-  
+
+
 /* Media Queries para hacerlo responsive */
+
 @media screen and (max-width: 768px) {
     .info-section {
-      flex-direction: column; /* Cambia a una columna en pantallas pequeñas */
+        flex-direction: column;
+        /* Cambia a una columna en pantallas pequeñas */
     }
-  
     .info-box {
-      width: 100%;
+        width: 100%;
     }
 }
 
 
 /* ------------------------------------------------- */
 
+
 /* Estilos para pantallas pequeñas */
+
 @media screen and (max-width: 768px) {
     .catalog {
         grid-template-columns: 1fr;
     }
-
     .product {
         max-width: 100%;
     }
 }
 
+
 /* Pie de página */
+
 footer {
     background-color: rgb(53, 6, 77);
     padding: 20px;
@@ -647,7 +681,6 @@ footer {
 .footer-info {
     text-align: right;
 }
-
 
 .footer-container .social-media ul,
 .footer-container .footer-links ul {
@@ -690,6 +723,7 @@ footer {
     width: 20px;
     height: 20px;
 }
+
 
 /* -------seccion de las citas jasjdjasj -------- */
 
@@ -744,28 +778,30 @@ h5 {
     font-size: 1.3rem;
 }
 
+
 /* Media Queries para hacerlo responsivo */
+
 @media screen and (max-width: 768px) {
     .cita-section {
         flex-direction: column;
     }
-
     .cita-option {
         margin-bottom: 30px;
     }
-
     .cita-option img {
         max-width: 100%;
     }
 }
 
 
-
-
 /*-------------------------------------- */
 
+
 /* seccion de los perritos adoptados jajaja oww q bonitos se ven los geis */
+
+
 /* gei tu, con los perros no te metas puto */
+
 .seccionAdop {
     position: relative;
 }
@@ -814,17 +850,17 @@ h5 {
     margin: 30px 0;
 }
 
+
 /* Media Queries para hacerlo responsivo */
+
 @media screen and (max-width: 768px) {
     .adoption-message h4 {
         font-size: 3.5vw;
     }
-
     .adoption-text h4 {
         font-size: 50px;
         margin: 20px 0;
     }
-
     .adoption-text p {
         font-size: 18px;
         margin: 20px 0;
@@ -835,12 +871,10 @@ h5 {
     .adoption-message h4 {
         font-size: 5vw;
     }
-
     .adoption-text h4 {
         font-size: 40px;
         margin: 15px 0;
     }
-
     .adoption-text p {
         font-size: 16px;
         margin: 15px 0;
@@ -852,10 +886,13 @@ h5 {
 
 
 /* Estilos para el banner */
+
 .banner {
     width: 100%;
-    height: 300px; /* Altura original del banner */
-    max-height: 70vh; /* Altura máxima del banner (70% del alto de la ventana) */
+    height: 300px;
+    /* Altura original del banner */
+    max-height: 70vh;
+    /* Altura máxima del banner (70% del alto de la ventana) */
     position: relative;
     overflow: hidden;
 }
@@ -876,16 +913,21 @@ h5 {
     z-index: -1;
 }
 
+
 /* Estilos para el contenedor del slideshow */
+
 .slideshow-container {
     position: relative;
     width: 100%;
     height: 0;
-    padding-bottom: 33.33%; /* Relación de aspecto 3:1 para las imágenes del slideshow */
+    padding-bottom: 33.33%;
+    /* Relación de aspecto 3:1 para las imágenes del slideshow */
     overflow: hidden;
 }
 
+
 /* Estilos para cada slide */
+
 .slide {
     position: absolute;
     top: 0;
@@ -908,25 +950,31 @@ h5 {
 
 @media screen and (max-width: 768px) {
     .banner {
-        height: 200px; /* Altura ajustada para pantallas más pequeñas */
-        max-height: 50vh; /* Altura máxima ajustada para pantallas más pequeñas */
+        height: 200px;
+        /* Altura ajustada para pantallas más pequeñas */
+        max-height: 50vh;
+        /* Altura máxima ajustada para pantallas más pequeñas */
     }
 }
+
+
 /*======== estilo de productos ===============*/
 
 form {
     display: flex;
     flex-direction: column;
-    align-items:center;
+    align-items: center;
     width: 100%;
 }
 
-label, input {
+label,
+input {
     margin-bottom: 10px;
 }
-.botones{
+
+.botones {
     display: flex;
-    gap:10pxsss ;
+    gap: 10pxsss;
 }
 
 button {
@@ -934,13 +982,15 @@ button {
     font-size: 16px;
     background-color: purple;
     color: #ddd;
-    border:none;
+    border: none;
     cursor: pointer;
     transition: all 0.2s;
 }
-button:hover{
+
+button:hover {
     transform: scale(1.1);
 }
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -948,13 +998,12 @@ body {
 }
 
 .producto {
-display: grid;
-grid-template-columns: 1fr 1fr;
-justify-content: center;
-gap: 20px;
-padding: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
 }
-
 
 .imagen {
     flex: 0 0 auto;
@@ -968,11 +1017,11 @@ padding: 20px;
 }
 
 .informacion {
-    grid-column:2;
+    grid-column: 2;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    text-align:left ;
+    text-align: left;
     margin-bottom: 20px;
     flex: 2;
     padding: 20px;
@@ -995,17 +1044,29 @@ padding: 20px;
 }
 
 .menu {
-  display: none;
-  list-style: none;
-  margin: 0;
-  padding: 0;
+    display: none;
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
 .menu li {
-  padding: 10px;
+    padding: 10px;
 }
 
 .menu li a {
-  color: #fff;
-  text-decoration: none;
+    color: #fff;
+    text-decoration: none;
+}
+
+.header-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header-button img {
+    width: 35px;
+    height: 35px;
+    margin-left: 9px;
 }

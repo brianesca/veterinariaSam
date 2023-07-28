@@ -1,140 +1,181 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Veterinaria SAM</title>
-    <link rel="stylesheet" href="estilos/estiloSesion.css">
-</head>
-<body>
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Veterinaria SAM</title>
+        <link rel="stylesheet" href="estilos/estiloSesion.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js" integrity="sha512-rstIgDs0xPgmG6RX1Aba4KV5cWJbAMcvRCVmglpam9SoHZiUCyQVDdH2LPlxoHtrv17XWblE/V/PP+Tr04hbtA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="./js/messages_es.js"></script>
+    </head>
+
     <body>
-        <div class="container">
-            <nav class="sidebar">
-                <header class="scroll-header">
-                    <div class="header-title">
-                        <button id="toggleSidebar">☰</button>
-                        <div class="header-logo">
-                            <a href="index.html">
-                                <img src="Imageneshtml/LogoSam2.png" alt="Logo">
+
+        <body>
+            <div class="container">
+                <nav class="sidebar">
+                    <header class="scroll-header">
+                        <div class="header-title">
+                            <button id="toggleSidebar">☰</button>
+                            <div class="header-logo">
+                                <a href="index.html">
+                                    <img src="Imageneshtml/LogoSam2.png"
+                                        alt="Logo">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="menu-icon" onclick="toggleMenu()">
+                            <a href="sesion.html" class="header-button">
+                                <span id="nombreDeUsuario"></span>
+                                <img src="Imageneshtml/usuario.png"
+                                    alt="Usuario">
                             </a>
                         </div>
-                    </div>
-                    <div class="menu-icon" onclick="toggleMenu()">
-                        <a href="sesion.html" class="header-button">
-                            <span id="nombreDeUsuario"></span>
-                            <img src="Imageneshtml/usuario.png" alt="Usuario">
+
+                        <a href="carrito.html" class="header-button">
+                            <img src="Imageneshtml/carritoo.png" alt="Carrito">
                         </a>
-                    </div>
-                   
-                    <a href="carrito.html" class="header-button">
-                        <img src="Imageneshtml/carritoo.png" alt="Carrito">
-                    </a>
-                </header>
+                    </header>
 
-    
-                <ul id="nav-options">
-                    <li class="active"><a href="catalogoProductos.html">Productos</a></li>
-                <li class="active"><a href="contacto.html">Contacto</a></li>
-                <li class="active"><a href="citas.html">Agendar Cita</a></li>
-                <li class="active"><a href="somos.html">¿Quienes Somos?</a></li>
-                <li class="active"><a href="Dudas.html">Preguntas frecuentes</a></li>
-                </ul>
-            </nav>
-      
+                    <ul id="nav-options">
+                        <li class="active"><a href="catalogoProductos.html">Productos</a></li>
+                        <li class="active"><a href="contacto.html">Contacto</a></li>
+                        <li class="active"><a href="citas.html">Agendar Cita</a></li>
+                        <li class="active"><a href="somos.html">¿Quienes Somos?</a></li>
+                        <li class="active"><a href="Dudas.html">Preguntas
+                                frecuentes</a></li>
+                    </ul>
+                </nav>
 
-    <div class="login-wrap" >
+                <div class="login-wrap">
 
-        <div class="login-cerrar"  id="perfil">
-            <h3>Informacion del usuario</h3>
-            <p>Nombre:</p>
-            <span id="nombreDeUsuario"></span>
-            <p>Correo:</p>
-            <span id="email"></span>
-            <button class="btn danger btn-block singOut">Cerrar sesion</button>
-        </div >
-        <div class="login-html" id="formulario">
-            <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Ingresar</label>
-            <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Registrarse</label>
-            <div class="login-form">
-                <div class="sign-in-htm" >
-                    <div class="group">
-                        <label for="user" class="label">Correo:</label>
-                        <input id="log-email" type="text" class="input">
+                    <div class="login-cerrar" id="perfil">
+                        <h3>Informacion del usuario</h3>
+                        <p><small>Nombre:</small></p>
+                        <span id="userName"></span>
+                        <p><small>Correo:</small></p>
+                        <span id="userEmail"></span>
+                        <button class="btn danger btn-block singOut" style="margin-top: 40px;">Cerrar sesion</button>
                     </div>
-                    <div class="group">
-                        <label for="pass" class="label">contraseña</label>
-                        <input id="log-password" type="password" class="input" data-type="password">
-                    </div>
-                    <div class="group">
-                        <input id="check" type="checkbox" class="check" checked>
-                        <label for="check"><span class="icon"></span> Mantener sesion</label>
-                    </div>
-                    <div class="group">
-                        <input type="submit" class="button btn-loggin" value="Ingresar">
-                    </div>
-                    <div class="hr"></div>
-                    <div class="foot-lnk">
-                        <a href="#forgot">Olvidaste tu contraseña?</a>
-                    </div>
-                </div>
-                <div class="sign-up-htm">
-                    <div class="group">
-                        <label for="user" class="label">Nombre de usuario</label>
-                        <input id="reg-nombre" type="text" class="input">
-                    </div>
-                    <div class="group">
-                        <label for="pass" class="label" >Contraseña</label>
-                        <input type="password" class="input" id="reg-password" data-type="password">
-                    </div>
-                    <div class="group">
-                        <label for="pass" class="label">Repite la Contraseña</label>
-                        <input id="pass" type="password" class="input" data-type="password">
-                    </div>
-                    <div class="group">
-                        <label for="pass" class="label" >Ingresa tu correo</label>
-                        <input type="text" class="input" id="reg-email">
-                    </div>
-                    <div class="group">
-                        <input type="submit" class="button btn-registrar" value="Ingresar">
-                    </div>
-                    <div class="hr"></div>
-                    <div class="foot-lnk">
-                        <label for="tab-1">Ya tienes una cuenta?</a>
+
+                    <div class="login-html" id="formulario">
+                        <input id="tab-1" type="radio" name="tab"
+                            class="sign-in" checked><label for="tab-1"
+                            class="tab">Ingresar</label>
+                        <input id="tab-2" type="radio" name="tab"
+                            class="sign-up"><label for="tab-2" class="tab">Registrarse</label>
+
+                        <div class="login-form">
+                            <div class="sign-in-htm">
+                                <form id="frm_login" method="post" enctype="multipart/form-data" autocomplete="off">
+                                    <div class="group">
+                                        <label for="user" class="label">Correo:</label>
+                                        <input name="logEmail" id="logEmail" type="text"
+                                            class="input">
+                                    </div>
+                                    <div class="group">
+                                        <label for="pass" class="label">contraseña</label>
+                                        <input name="logPassword" id="logPassword" type="password"
+                                            class="input" data-type="password">
+                                    </div>
+                                    <div class="group">
+                                        <input id="check" type="checkbox"
+                                            class="check" checked>
+                                        <label for="check"><span class="icon"></span>
+                                            Mantener sesion</label>
+                                    </div>
+                                    <div class="group">
+                                        <input type="submit"
+                                            class="button btn-loggin"
+                                            value="Ingresar">
+                                    </div>
+                                    <div class="hr"></div>
+                                    <div class="foot-lnk">
+                                        <a href="#forgot">Olvidaste tu contraseña?</a>
+                                    </div>
+                                </form>
+                            </div>
+
+                            <div class="sign-up-htm">
+                                <form id="frm_register" method="post" enctype="multipart/form-data" autocomplete="off">
+                                    <div class="group">
+                                        <label for="regNombre" class="label">Nombre de usuario</label>
+                                        <input name="regNombre" id="regNombre" type="text" class="input">
+                                    </div>
+                                    <div class="group">
+                                        <label for="regPassword" class="label">Contraseña</label>
+                                        <input type="password" class="input"
+                                            name="regPassword" id="regPassword" data-type="password">
+                                    </div>
+                                    <div class="group">
+                                        <label for="pass" class="label">Repite la
+                                            Contraseña</label>
+                                        <input name="regRePassword" id="regRePassword" type="password"
+                                            class="input" data-type="password">
+                                    </div>
+                                    <div class="group">
+                                        <label for="regEmail" class="label">Ingresa tu
+                                            correo</label>
+                                        <input type="text" class="input"
+                                            name="regEmail" id="regEmail">
+                                    </div>
+                                    <div class="group">
+                                        <input type="submit"
+                                            class="button btn-registrar"
+                                            value="Ingresar">
+                                    </div>
+                                    <div class="hr"></div>
+                                    <div class="foot-lnk">
+                                        <label for="tab-1">Ya tienes una cuenta?</a>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-</div>
-<footer>
-    <div class="footer-container">
-        <div class="social-media">
-            <ul>
-                <li><a href="https://www.facebook.com/profile.php?id=100094700436543&mibextid=LQQJ4d"
-                        target="_blank"><img src="Imageneshtml/logoFB.png" alt="Facebook"></a></li>
-                <li><a href="https://www.instagram.com/veterinarias.a.m/?igshid=OGQ5ZDc2ODk2ZA%3D%3D"
-                        target="_blank"><img src="Imageneshtml/logoIG.png" alt="Instagram"></a></li>
-                <li><a href="https://api.whatsapp.com/send?phone=1234567890" target="_blank"><img
-                            src="Imageneshtml/logoWA.png" alt="WhatsApp"></a></li>
-                <p>&copy; 2023 Veterinaria S.A.M Phantoms</p>
-                <p>Calle Glorieta de Fuente de Petróleos 340, Evolucion, 57700 Nezahualcóyotl, Méx.</p>
-            </ul>
-        </div>
-        <div class="footer-links">
-            <ul>
-                <li><a href="politica-privacidad.html">Política de Privacidad |</a></li>
-                <li><a href="#">Preguntas frecuentes | </a></li>
-                <li><a href="mailto:veterinariasam102@gmail.com">veterinariasam102@gmail.com</a></li>
-            </ul>
-        </div>
-        <div>
-            <br>
-        </div>
-    </div>
-</footer>
+            <footer>
+                <div class="footer-container">
+                    <div class="social-media">
+                        <ul>
+                            <li><a
+                                    href="https://www.facebook.com/profile.php?id=100094700436543&mibextid=LQQJ4d"
+                                    target="_blank"><img
+                                        src="Imageneshtml/logoFB.png"
+                                        alt="Facebook"></a></li>
+                            <li><a
+                                    href="https://www.instagram.com/veterinarias.a.m/?igshid=OGQ5ZDc2ODk2ZA%3D%3D"
+                                    target="_blank"><img
+                                        src="Imageneshtml/logoIG.png"
+                                        alt="Instagram"></a></li>
+                            <li><a
+                                    href="https://api.whatsapp.com/send?phone=1234567890"
+                                    target="_blank"><img
+                                        src="Imageneshtml/logoWA.png"
+                                        alt="WhatsApp"></a></li>
+                            <p>&copy; 2023 Veterinaria S.A.M Phantoms</p>
+                            <p>Calle Glorieta de Fuente de Petróleos 340,
+                                Evolucion, 57700 Nezahualcóyotl, Méx.</p>
+                        </ul>
+                    </div>
+                    <div class="footer-links">
+                        <ul>
+                            <li><a href="politica-privacidad.html">Política de
+                                    Privacidad |</a></li>
+                            <li><a href="#">Preguntas frecuentes | </a></li>
+                            <li><a href="mailto:veterinariasam102@gmail.com">veterinariasam102@gmail.com</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <br>
+                    </div>
+                </div>
+            </footer>
 
- <!-- este alch igual no se de que sea, ya estaba cuando llegue jajaja 💀-->
- <script>
+            <!-- este alch igual no se de que sea, ya estaba cuando llegue jajaja 💀-->
+            <script>
     document.getElementById('toggleSidebar').addEventListener('click', function () {
         document.querySelector('.sidebar').classList.toggle('open');
     });
@@ -177,7 +218,6 @@
     }
 </script>
 
-
 <!-- este we se encarga de que el header se minimice al bajar o navegar en la pagina-->
 <script>
     window.addEventListener('scroll', function () {
@@ -191,7 +231,7 @@
 
 </script>
 
-<script>
+            <script>
     document.addEventListener('click', function (event) {
         var sidebar = document.querySelector('.sidebar');
         var targetElement = event.target;
@@ -204,26 +244,58 @@
 </script>
 
 <script>
-    var btnRegister = document.querySelector('.btn-registrar');
-    btnRegister.addEventListener('click', function (event) {
+
+$(document).ready(function() {
+
+var $form = $("#frm_register");
+$form.validate({
+    rules: {
+        regNombre: {
+            required: true,
+            maxlength: 100
+        },
+        regEmail: {
+            required: true,
+            email: true,
+            maxlength: 100
+        },
+        regPassword: {
+            required: true,
+            minlength: 5,
+        },
+        regRePassword: {
+            minlength: 5,
+            equalTo: "#regPassword"
+        }
+    },
+    invalidHandler: function(event, validator) {
+        var errors = validator.numberOfInvalids();
+        if (errors) {
+            var message = errors === 1 ?
+                'You missed 1 field. It has been highlighted' :
+                'You missed ' + errors + ' fields. They have been highlighted';
+        }
+    },
+    submitHandler: function(form) {
+        
+        var $form = $(form);
+        var urlaction = $(form).attr('action');
+        var datos = setDatos('frm_register');
         var targetElement = event.target;
+
         const API_KEY = 'AIzaSyDZ7IbTIjCtdndYXe1-DV14l57FIU_iBlM';
         const projectId = 'tu-id-de-proyecto';
         const collectionName = 'nombre-de-la-coleccion';
         const url = `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${API_KEY}`;
         
-        alert(document.getElementById('reg-email').value);
         const authData = {
-            email: document.getElementById('reg-email').value,
-            displayName: document.getElementById('reg-nombre').value,
-            password: document.getElementById('reg-password').value,
+            email: document.getElementById('regEmail').value,
+            displayName: document.getElementById('regNombre').value,
+            password: document.getElementById('regPassword').value,
             returnSecureToken: true,
             role: "Admin" 
         }
         
-        console.log(authData);
-
-
         // Realiza la petición POST
         fetch(url, {
             method: 'POST',
@@ -239,84 +311,125 @@
             return response.json(); // Convierte la respuesta a formato JSON
             })
             .then(data => {
-            // Aquí puedes manejar la respuesta del servidor
-            console.log('Respuesta del servidor:', data);
+                // Aquí puedes manejar la respuesta del servidor
+                console.log('Respuesta del servidor:', data);
+                location.reload();
             })
             .catch(error => {
-            // Maneja los errores que puedan ocurrir durante la petición
-            console.error('Error:', error);
+                // Maneja los errores que puedan ocurrir durante la petición
+                console.error('Error:', error);
             });
 
-
-
-
-
+        } //submit handler
     });
 
+    function setDatos(nombreForm) {
+        var data = $('#' + nombreForm).serializeArray();
+        var Datos = new FormData();
+        $('input[type="file"]').each(function ($i) {
+            Datos.append($(this).prop("name"), $(this)[0].files[0]);
+        });
+        $.each(data,
+                function (key, input) {
+                    Datos.append(input.name, input.value);
+                });
+        return Datos;
+    }
+
+}); //document
 </script>
 
-
-
 <script>
-    var btnLoggin = document.querySelector('.btn-loggin');
-    btnLoggin.addEventListener('click', function (event) {
-        var targetElement = event.target;
-        const API_KEY = 'AIzaSyDZ7IbTIjCtdndYXe1-DV14l57FIU_iBlM';
-        const url = `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${API_KEY}`;
-        
-        alert(document.getElementById('log-email').value);
-        const authData = {
-            email: document.getElementById('log-email').value,
-            password: document.getElementById('log-password').value,
-            returnSecureToken: true 
-        }
-        
-        console.log(authData);
 
+$(document).ready(function() {
 
-// Realiza la petición POST
-fetch(url, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json' // Indica que los datos se enviarán en formato JSON
-    },
-    body: JSON.stringify(authData) // Convierte el objeto en formato JSON
-  })
-    .then(response => {
-      if (!response.ok) {
-        throw new Error('Error en la petición'); // Si la respuesta no es exitosa, lanza un error
-      }
-      return response.json(); // Convierte la respuesta a formato JSON
-    })
-    .then(data => {
-        
-        
-        
-        console.log(data.email);
-        console.log(data.displayName);
-        localStorage.setItem("nombre", data.displayName);
-        localStorage.setItem("email", data.email);
-        window.location.replace("index.html");
-      // Aquí puedes manejar la respuesta del servidor
-      console.log('Respuesta del servidor:', data);
-    })
-    .catch(error => {
-      // Maneja los errores que puedan ocurrir durante la petición
-      console.error('Error:', error);
+    var $form = $("#frm_login");
+    $form.validate({
+        rules: {
+            logEmail: {
+                required: true,
+                maxlength: 100,
+                email: true
+            },
+            logPassword: {
+                required: true,
+                minlength: 5,
+            }
+        },
+        invalidHandler: function(event, validator) {
+            var errors = validator.numberOfInvalids();
+            if (errors) {
+                var message = errors === 1 ?
+                    'You missed 1 field. It has been highlighted' :
+                    'You missed ' + errors + ' fields. They have been highlighted';
+            }
+        },
+        submitHandler: function(form) {
+            
+            var $form = $(form);
+            var urlaction = $(form).attr('action');
+            var datos = setDatos('frm_login');
+            var targetElement = event.target;
+
+            const API_KEY = 'AIzaSyDZ7IbTIjCtdndYXe1-DV14l57FIU_iBlM';
+            const url = `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${API_KEY}`;
+            
+            const authData = {
+                email: document.getElementById('logEmail').value,
+                password: document.getElementById('logPassword').value,
+                returnSecureToken: true 
+            }
+
+            // Realiza la petición POST
+            fetch(url, {
+                method: 'POST',
+                headers: {
+                'Content-Type': 'application/json' // Indica que los datos se enviarán en formato JSON
+                },
+                body: JSON.stringify(authData) // Convierte el objeto en formato JSON
+            })
+            .then(response => {
+                if (!response.ok) {
+                throw new Error('Error en la petición'); // Si la respuesta no es exitosa, lanza un error
+                }
+                return response.json(); // Convierte la respuesta a formato JSON
+            })
+            .then(data => {
+                localStorage.setItem("nombre", data.displayName);
+                localStorage.setItem("email", data.email);
+                window.location.replace("index.html");
+                // Aquí puedes manejar la respuesta del servidor
+                console.log('Respuesta del servidor:', data);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+
+        } //submit handler
     });
 
+    function setDatos(nombreForm) {
+        var data = $('#' + nombreForm).serializeArray();
+        var Datos = new FormData();
+        $('input[type="file"]').each(function ($i) {
+            Datos.append($(this).prop("name"), $(this)[0].files[0]);
+        });
+        $.each(data,
+                function (key, input) {
+                    Datos.append(input.name, input.value);
+                });
+        return Datos;
+    }
 
-
-
-
-    });
+}); //document
 </script>
 
 <script>
     (() => {
         function documentReady() {
-            const nombreDeUsuarioElement = document.getElementById('nombreDeUsuario');
-            const emailElement = document.getElementById('email');
+            const miElemento = document.getElementById('nombreDeUsuario');
+            const userName = document.getElementById('userName');
+            const userEmail = document.getElementById('userEmail');
     
             // Obtener el nombre y correo del usuario almacenados en la Local Storage
             const nombre = localStorage.getItem("nombre");
@@ -324,8 +437,9 @@ fetch(url, {
     
             if (nombre !== null) {
                 // Mostrar el nombre y correo del usuario en el header
-                nombreDeUsuarioElement.textContent = nombre;
-                emailElement.textContent = email;
+                miElemento.textContent = localStorage.getItem("nombre");
+                userName.textContent = nombre;
+                userEmail.textContent = email;
             }
     
             const formulario = document.getElementById("formulario");
@@ -354,9 +468,7 @@ fetch(url, {
 
 </script>
 
-
-
-<script>
+            <script>
     document.addEventListener('DOMContentLoaded', function () {
         const navOptions = document.getElementById('nav-options');
         const userEmail = localStorage.getItem('email'); // Obtén el correo electrónico del usuario de la Local Storage
@@ -384,5 +496,5 @@ fetch(url, {
       });
       
 </script>
-</body>
-</html>
+        </body>
+    </html>
