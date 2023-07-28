@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carrito de Compras</title>
+  <link rel="stylesheet" href="estilos/carrito.css">
+</head>
+<body>
+    <div class="container">
+        <nav class="sidebar">
+            <header class="scroll-header">
+                <div class="header-title">
+                    <button id="toggleSidebar">☰</button>
+                    <div class="header-logo">
+                        <a href="index.html">
+                            <img src="Imageneshtml/LogoSAM2.png" alt="Logo">
+                        </a>
+                    </div>
+                </div>
+                <div class="menu-icon" onclick="toggleMenu()">
+                    <a href="sesion.html" class="header-button">
+                        <span id="nombreDeUsuario"></span>
+                        <img src="Imageneshtml/usuario.png" alt="Usuario">
+                    </a>
+                </div>
+               
+                <a href="carrito.html" class="header-button">
+                    <img src="Imageneshtml/carritoo.png" alt="Carrito">
+                </a>
+            </header>
+
+
+            <ul>
+                <li class="active"><a href="catalogoProductos.html">Productos</a></li>
+                <li class="active"><a href="contacto.html">Contacto</a></li>
+                <li class="active"><a href="citas.html">Agendar Cita</a></li>
+                <li class="active"><a href="somos.html">¿Quienes Somos?</a></li>
+                <li class="active"><a href="Dudas.html">Preguntas frecuentes</a></li>
+            </ul>
+        </nav>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+  <main>
+    <div class="cart-items">
+      <!-- Aquí se agregarán los elementos del carrito -->
+    </div>
+    <div class="cart-total">
+      <h2>Total: <span id="total-amount">$0</span></h2>
+      <button id="checkout-btn">Checkout</button>
+    </div>
+  </main>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<footer>
+    <div class="footer-container">
+        <div class="social-media">
+            <ul>
+                <li><a href="https://www.facebook.com/profile.php?id=100094700436543&mibextid=LQQJ4d"
+                        target="_blank"><img src="Imageneshtml/logoFB.png" alt="Facebook"></a></li>
+                <li><a href="https://www.instagram.com/veterinarias.a.m/?igshid=OGQ5ZDc2ODk2ZA%3D%3D"
+                        target="_blank"><img src="Imageneshtml/logoIG.png" alt="Instagram"></a></li>
+                <li><a href="https://api.whatsapp.com/send?phone=1234567890" target="_blank"><img
+                            src="Imageneshtml/logoWA.png" alt="WhatsApp"></a></li>
+                <p>&copy; 2023 Veterinaria S.A.M Phantoms</p>
+                <p>Calle Glorieta de Fuente de Petróleos 340, Evolucion, 57700 Nezahualcóyotl, Méx.</p>
+            </ul>
+        </div>
+        <div class="footer-links">
+            <ul>
+                <li><a href="politica-privacidad.html">Política de Privacidad |</a></li>
+                <li><a href="#">Preguntas frecuentes | </a></li>
+                <li><a href="mailto:veterinariasam102@gmail.com">veterinariasam102@gmail.com</a></li>
+            </ul>
+        </div>
+        <div>
+            <br>
+        </div>
+    </div>
+</footer>
+
+
+
+
+  <script>
+    // Lista de elementos del carrito (simulación)
+const cartItems = [
+{ id: 1, name: 'Producto 1', price: 10, image: 'product1.jpg' },
+{ id: 2, name: 'Producto 2', price: 15, image: 'product2.jpg' },
+{ id: 3, name: 'Producto 3', price: 20, image: 'product3.jpg' }
+];
+
+// Función para mostrar los elementos del carrito
+function showCartItems() {
+const cartItemsContainer = document.querySelector('.cart-items');
+cartItemsContainer.innerHTML = '';
+
+let totalAmount = 0;
+
+cartItems.forEach(item => {
+  const cartItemElement = document.createElement('div');
+  cartItemElement.classList.add('cart-item');
+
+  const itemImage = document.createElement('img');
+  itemImage.src = item.image;
+  cartItemElement.appendChild(itemImage);
+
+  const itemName = document.createElement('span');
+  itemName.textContent = item.name;
+  itemName.classList.add('cart-item-name');
+  cartItemElement.appendChild(itemName);
+
+  const itemPrice = document.createElement('span');
+  itemPrice.textContent = `$${item.price}`;
+  itemPrice.classList.add('cart-item-price');
+  cartItemElement.appendChild(itemPrice);
+
+  cartItemsContainer.appendChild(cartItemElement);
+
+  totalAmount += item.price;
+});
+
+const totalAmountElement = document.getElementById('total-amount');
+totalAmountElement.textContent = `$${totalAmount}`;
+}
+
+// Función para inicializar el carrito
+function initializeCart() {
+showCartItems();
+
+const checkoutButton = document.getElementById('checkout-btn');
+checkoutButton.addEventListener('click', () => {
+  alert('Gracias por tu compra');
+  // Aquí podrías agregar la lógica para procesar el pago y realizar la compra
+});
+}
+
+// Inicializar el carrito cuando la página cargue
+document.addEventListener('DOMContentLoaded', initializeCart);
+
+  </script>
+
+  <!-- este alch igual no se de que sea, ya estaba cuando llegue jajaja 💀-->
+  <script>
+    document.getElementById('toggleSidebar').addEventListener('click', function () {
+        document.querySelector('.sidebar').classList.toggle('open');
+    });
+    let mostrador = document.getElementById("mostrador");
+    let seleccion = document.getElementById("seleccion");
+    let imgSeleccionada = document.getElementById("img");
+    let modeloSeleccionado = document.getElementById("modelo");
+    let descripSeleccionada = document.getElementById("descripcion");
+    let precioSeleccionado = document.getElementById("precio");
+    let descuentoSeleccionado = document.getElementById("descuento");
+
+    function cargar(item) {
+        quitarBordes();
+        mostrador.style.width = "60%";
+        seleccion.style.width = "40%";
+        seleccion.style.opacity = "1";
+        item.style.border = "2px solid red";
+
+        imgSeleccionada.src = item.getElementsByTagName("img")[0].src;
+
+        modeloSeleccionado.innerHTML = item.getElementsByTagName("p")[0].innerHTML;
+
+        descripSeleccionada.innerHTML = "Descripción del Poducto ";
+
+        precioSeleccionado.innerHTML = item.getElementsByTagName("span")[0].innerHTML;
+
+
+    }
+    function cerrar() {
+        mostrador.style.width = "100%";
+        seleccion.style.width = "0%";
+        seleccion.style.opacity = "0";
+        quitarBordes();
+    }
+    function quitarBordes() {
+        var items = document.getElementsByClassName("item");
+        for (i = 0; i < items.length; i++) {
+            items[i].style.border = "none";
+        }
+    }
+</script>
+
+
+<!-- este we se encarga de que el header se minimice al bajar o navegar en la pagina-->
+<script>
+    window.addEventListener('scroll', function () {
+        var header = document.querySelector('.scroll-header');
+        if (window.scrollY > 100) {
+            header.classList.add('small');
+        } else {
+            header.classList.remove('small');
+        }
+    });
+
+</script>
+
+ <!--este es pa cuando se haga clic fuera del banner, este se cierre auto -->
+ <script>
+    document.addEventListener('click', function (event) {
+        var sidebar = document.querySelector('.sidebar');
+        var targetElement = event.target;
+
+        if (!sidebar.contains(targetElement) && targetElement.id !== 'toggleSidebar') {
+            sidebar.classList.remove('open');
+        }
+    });
+
+</script>
+
+
+
+
+<script>
+    (() => {
+        function documentReady() {
+          const miElemento = document.getElementById('nombreDeUsuario');
+          miElemento.textContent = localStorage.getItem("nombre");
+          console.log(localStorage.getItem("nombre"));
+        }
+        document.addEventListener('DOMContentLoaded', documentReady);
+      })();
+
+</script>
+
+
+
+</body>
+</html>

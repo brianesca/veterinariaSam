@@ -727,6 +727,17 @@
         });
     </script>
 
+    <script>
+        (() => {
+            function documentReady() {
+              const miElemento = document.getElementById('nombreDeUsuario');
+              miElemento.textContent = localStorage.getItem("nombre");
+              console.log(localStorage.getItem("nombre"));
+            }
+            document.addEventListener('DOMContentLoaded', documentReady);
+          })();
+
+    </script>
 
 
 

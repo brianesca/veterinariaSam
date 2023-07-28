@@ -22,10 +22,14 @@
                         </a>
                     </div>
                 </div>
-                <a href="sesion.html" class="header-button">
-                    <img src="Imageneshtml/usuario.png" alt="Usuario">
-                </a>
-                <a href="compras.html" class="header-button">
+                <div class="menu-icon" onclick="toggleMenu()">
+                    <a href="sesion.html" class="header-button">
+                        <span id="nombreDeUsuario"></span>
+                        <img src="Imageneshtml/usuario.png" alt="Usuario">
+                    </a>
+                </div>
+               
+                <a href="carrito.html" class="header-button">
                     <img src="Imageneshtml/carritoo.png" alt="Carrito">
                 </a>
             </header>
@@ -310,6 +314,17 @@
         });
     </script>
 
+    <script>
+        (() => {
+            function documentReady() {
+              const miElemento = document.getElementById('nombreDeUsuario');
+              miElemento.textContent = localStorage.getItem("nombre");
+              console.log(localStorage.getItem("nombre"));
+            }
+            document.addEventListener('DOMContentLoaded', documentReady);
+          })();
+
+    </script>
 
 
 

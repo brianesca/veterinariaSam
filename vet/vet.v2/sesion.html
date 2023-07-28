@@ -19,17 +19,20 @@
                             </a>
                         </div>
                     </div>
-                    <a href="sesion.html" class="header-button">
-                        <span id="nombreDeUsuario"></span>
-                        <img src="Imageneshtml/usuario.png" alt="Usuario">
-                    </a>
-                    <a href="compras.html" class="header-button">
+                    <div class="menu-icon" onclick="toggleMenu()">
+                        <a href="sesion.html" class="header-button">
+                            <span id="nombreDeUsuario"></span>
+                            <img src="Imageneshtml/usuario.png" alt="Usuario">
+                        </a>
+                    </div>
+                   
+                    <a href="carrito.html" class="header-button">
                         <img src="Imageneshtml/carritoo.png" alt="Carrito">
                     </a>
                 </header>
 
     
-                <ul>
+                <ul id="nav-options">
                     <li class="active"><a href="catalogoProductos.html">Productos</a></li>
                 <li class="active"><a href="contacto.html">Contacto</a></li>
                 <li class="active"><a href="citas.html">Agendar Cita</a></li>
@@ -42,6 +45,11 @@
     <div class="login-wrap" >
 
         <div class="login-cerrar"  id="perfil">
+            <h3>Informacion del usuario</h3>
+            <p>Nombre:</p>
+            <span id="nombreDeUsuario"></span>
+            <p>Correo:</p>
+            <span id="email"></span>
             <button class="btn danger btn-block singOut">Cerrar sesion</button>
         </div >
         <div class="login-html" id="formulario">
@@ -304,37 +312,77 @@ fetch(url, {
     });
 </script>
 
-
-
 <script>
     (() => {
         function documentReady() {
-          const miElemento = document.getElementById('nombreDeUsuario');
-          miElemento.textContent = localStorage.getItem("nombre");
-          const formulario = document.getElementById("formulario");
-        const perfil = document.getElementById("perfil");
-
-        if (localStorage.getItem("nombre") !== null ) {
-            formulario.style.display = "none";
-            perfil.style.display = "block";
-          } else {
-            formulario.style.display = "block";
-            perfil.style.display = "none";
-          }
-
-
+            const nombreDeUsuarioElement = document.getElementById('nombreDeUsuario');
+            const emailElement = document.getElementById('email');
+    
+            // Obtener el nombre y correo del usuario almacenados en la Local Storage
+            const nombre = localStorage.getItem("nombre");
+            const email = localStorage.getItem("email");
+    
+            if (nombre !== null) {
+                // Mostrar el nombre y correo del usuario en el header
+                nombreDeUsuarioElement.textContent = nombre;
+                emailElement.textContent = email;
+            }
+    
+            const formulario = document.getElementById("formulario");
+            const perfil = document.getElementById("perfil");
+    
+            if (nombre !== null) {
+                formulario.style.display = "none";
+                perfil.style.display = "block";
+            } else {
+                formulario.style.display = "block";
+                perfil.style.display = "none";
+            }
         }
+        
         document.addEventListener('DOMContentLoaded', documentReady);
-
+    
         var singOut = document.querySelector('.singOut');
         singOut.addEventListener('click', function (event) {
-        var targetElement = event.target;
-        localStorage.removeItem("nombre");
-        localStorage.removeItem("email");
-        location.reload();
+            var targetElement = event.target;
+            localStorage.removeItem("nombre");
+            localStorage.removeItem("email");
+            location.reload();
+        });
+    })();
+    
 
-    });
-      })();
+</script>
+
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const navOptions = document.getElementById('nav-options');
+        const userEmail = localStorage.getItem('email'); // Obtén el correo electrónico del usuario de la Local Storage
+      
+        if (userEmail === 'test5@gmail.com') {
+          // Si el correo electrónico coincide con el correo específico, muestra opciones personalizadas
+          navOptions.innerHTML = `
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="AgregarProducto.html">Productos</a></li>
+            <li><a href="Empleado.html">Personal</a></li>
+            <li><a href="horarios.html">Horarios</a></li>
+            <!-- Otras opciones de navegación para usuarios con el correo específico -->
+          `;
+        } else {
+          // Si el correo electrónico no coincide con el correo específico, muestra opciones estándar
+          navOptions.innerHTML = `
+          <li class="active"><a href="catalogoProductos.html">Productos</a></li>
+          <li class="active"><a href="contacto.html">Contacto</a></li>
+          <li class="active"><a href="citas.html">Agendar Cita</a></li>
+          <li class="active"><a href="somos.html">¿Quienes Somos?</a></li>
+          <li class="active"><a href="Dudas.html">Preguntas frecuentes</a></li>
+            <!-- Otras opciones de navegación estándar -->
+          `;
+        }
+      });
+      
 </script>
 </body>
 </html>
