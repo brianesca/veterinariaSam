@@ -1,15 +1,15 @@
 const productos = [
     {
       id: 1,
-      img: "",
-      nombre: 'Collar 1',
+      img: "./Imageneshtml/IMG_3264.jpg",
+      nombre: 'Collar y shampoo para pulgas',
       marca:"dogCat",
       precio: 10.99,
-      descripcion: 'Descripción del Collar 1'
+      descripcion: 'Collar y producto para pulgas'
     },
     {
       id: 2,
-      img: "",
+      img: "./Imageneshtml/logoWA.png",
       nombre: 'Collar 2',
       marca:"dogCat",
       precio: 25.00,
@@ -17,7 +17,7 @@ const productos = [
     },
     {
       id: 3,
-      img: "",
+      img: "./Imageneshtml/logoWA.png",
       nombre: 'Collar 3',
       marca:"dogCat",
       precio: 5.99,
@@ -25,7 +25,7 @@ const productos = [
     },
     {
       id: 4,
-      img: "",
+      img: "./Imageneshtml/logoWA.png",
       nombre: 'Collar 4',
       marca:"dogCat",
       precio: 5.99,
@@ -33,7 +33,7 @@ const productos = [
     },
     {
       id: 5,
-      img: "",
+      img: "./Imageneshtml/logoWA.png",
       nombre: 'Collar 5',
       marca:"dogCat",
       precio: 5.99,
@@ -41,7 +41,7 @@ const productos = [
     },
     {
       id: 6,
-      img: "",
+      img: "./Imageneshtml/logoWA.png",
       nombre: 'Collar 6',
       marca:"dogCat",
       precio: 5.99,
@@ -49,7 +49,7 @@ const productos = [
     },
     {
       id: 7,
-      img: "",
+      img: "./Imageneshtml/logoWA.png",
       nombre: 'Collar 7',
       marca:"dogCat",
       precio: 5.99,
@@ -57,7 +57,7 @@ const productos = [
     },
     {
       id: 8,
-      img: "",
+      img: "./Imageneshtml/logoWA.png",
       nombre: 'Collar 8',
       marca:"dogCat",
       precio: 5.99,
@@ -65,7 +65,7 @@ const productos = [
     },
     {
       id: 9,
-      img: "",
+      img: "./Imageneshtml/logoWA.png",
       nombre: 'Collar 9',
       marca:"dogCat",
       precio: 5.99,
@@ -73,7 +73,7 @@ const productos = [
     },
     {
       id: 10,
-      img: "",
+      img: "./Imageneshtml/logoWA.png",
       nombre: 'Collar 10',
       marca:"dogCat",
       precio: 5.99,

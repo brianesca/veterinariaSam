@@ -1121,6 +1121,11 @@ BARRA NAVEGACION
     cursor: pointer;
 }
 
+.product-image img {
+    width:100%;
+    height:auto;
+}
+
 
 .mobile{
     display: none;

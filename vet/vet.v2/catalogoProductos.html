@@ -364,7 +364,7 @@ productos.forEach((producto) => {
   
   let prod = `<div class="product">
                     <div class="product-image">
-                        <img src="Imageneshtml/logoWA.png" alt="Producto 1">
+                        <img src="${producto.img}" alt="${producto.nombre}">
                     </div>
                     <div class="product-info">
                         <h3>${producto.nombre}</h3>
@@ -474,7 +474,6 @@ productos.forEach((producto) => {
             productosObjeto.push(producTemp);
             console.log( productosObjeto );
             localStorage.setItem("shoppingCart", JSON.stringify(productosObjeto));
-            // localStorage.setItem("shoppingCart", JSON.stringify(productos));
         } else {
             let productosObjeto = [];
             productosObjeto.push(producTemp);

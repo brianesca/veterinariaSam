@@ -68,59 +68,91 @@
 
   <script>
     // Lista de elementos del carrito (simulación)
-const cartItems = [
-{ id: 1, name: 'Producto 1', price: 10, image: 'product1.jpg' },
-{ id: 2, name: 'Producto 2', price: 15, image: 'product2.jpg' },
-{ id: 3, name: 'Producto 3', price: 20, image: 'product3.jpg' }
-];
+// const cartItems = [
+// { id: 1, name: 'Producto 1', price: 10, image: 'product1.jpg' },
+// { id: 2, name: 'Producto 2', price: 15, image: 'product2.jpg' },
+// { id: 3, name: 'Producto 3', price: 20, image: 'product3.jpg' }
+// ];
 
-// Función para mostrar los elementos del carrito
-function showCartItems() {
-const cartItemsContainer = document.querySelector('.cart-items');
-cartItemsContainer.innerHTML = '';
+// // Función para mostrar los elementos del carrito
+// function showCartItems() {
+// const cartItemsContainer = document.querySelector('.cart-items');
+// cartItemsContainer.innerHTML = '';
 
-let totalAmount = 0;
+// let totalAmount = 0;
 
-cartItems.forEach(item => {
-  const cartItemElement = document.createElement('div');
-  cartItemElement.classList.add('cart-item');
+// cartItems.forEach(item => {
+//   const cartItemElement = document.createElement('div');
+//   cartItemElement.classList.add('cart-item');
 
-  const itemImage = document.createElement('img');
-  itemImage.src = item.image;
-  cartItemElement.appendChild(itemImage);
+//   const itemImage = document.createElement('img');
+//   itemImage.src = item.image;
+//   cartItemElement.appendChild(itemImage);
 
-  const itemName = document.createElement('span');
-  itemName.textContent = item.name;
-  itemName.classList.add('cart-item-name');
-  cartItemElement.appendChild(itemName);
+//   const itemName = document.createElement('span');
+//   itemName.textContent = item.name;
+//   itemName.classList.add('cart-item-name');
+//   cartItemElement.appendChild(itemName);
 
-  const itemPrice = document.createElement('span');
-  itemPrice.textContent = `$${item.price}`;
-  itemPrice.classList.add('cart-item-price');
-  cartItemElement.appendChild(itemPrice);
+//   const itemPrice = document.createElement('span');
+//   itemPrice.textContent = `$${item.price}`;
+//   itemPrice.classList.add('cart-item-price');
+//   cartItemElement.appendChild(itemPrice);
 
-  cartItemsContainer.appendChild(cartItemElement);
+//   cartItemsContainer.appendChild(cartItemElement);
 
-  totalAmount += item.price;
-});
+//   totalAmount += item.price;
+// });
 
-const totalAmountElement = document.getElementById('total-amount');
-totalAmountElement.textContent = `$${totalAmount}`;
-}
+// const totalAmountElement = document.getElementById('total-amount');
+// totalAmountElement.textContent = `$${totalAmount}`;
+// }
 
-// Función para inicializar el carrito
-function initializeCart() {
-showCartItems();
+// // Función para inicializar el carrito
+// function initializeCart() {
+// showCartItems();
 
-const checkoutButton = document.getElementById('checkout-btn');
-checkoutButton.addEventListener('click', () => {
-  alert('Gracias por tu compra');
-  // Aquí podrías agregar la lógica para procesar el pago y realizar la compra
-});
-}
+// const checkoutButton = document.getElementById('checkout-btn');
+// checkoutButton.addEventListener('click', () => {
+//   alert('Gracias por tu compra');
+//   // Aquí podrías agregar la lógica para procesar el pago y realizar la compra
+// });
+// }
 
 // Inicializar el carrito cuando la página cargue
-document.addEventListener('DOMContentLoaded', initializeCart);
+// document.addEventListener('DOMContentLoaded', initializeCart);
+
+  </script>
+
+  <script>
+
+    function loadShoppingCart(){ 
+        
+        let carrito = localStorage.getItem('shoppingCart');
+        let carritoObjeto = JSON.parse(carrito);
+        const productCartDiv = document.querySelector('.cart-items');
+        let totalAmount = 0;
+        console.log(carrito);
+        if (carrito !== null) {
+
+            carritoObjeto.forEach((product) => {
+
+                const productCartHTML = `
+                <div class="cart-item">
+                    <img src="${product.img}">
+                    <span class="cart-item-name">${product.nombre}</span>
+                    <span class="cart-item-price">$${product.precio}</span>
+                </div>
+                `;
+                productCartDiv.insertAdjacentHTML('afterbegin', productCartHTML);
+                totalAmount += product.precio;
+
+            });
+            const totalAmountElement = document.getElementById('total-amount');
+            totalAmountElement.textContent = `$${parseFloat(totalAmount.toFixed(2))}`;
+        }
+    }
+    loadShoppingCart();
 
   </script>
 
