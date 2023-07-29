@@ -5,46 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Carrito de Compras</title>
   <link rel="stylesheet" href="estilos/carrito.css">
+  <link rel="stylesheet" href="estilos/app.css">
 </head>
 <body>
     <div class="container">
-        <nav class="sidebar">
-            <header class="scroll-header">
-                <div class="header-title">
-                    <button id="toggleSidebar">☰</button>
-                    <div class="header-logo">
-                        <a href="index.html">
-                            <img src="Imageneshtml/LogoSAM2.png" alt="Logo">
-                        </a>
-                    </div>
-                </div>
-                <div class="menu-icon" onclick="toggleMenu()">
-                    <a href="sesion.html" class="header-button">
-                        <span id="nombreDeUsuario"></span>
-                        <img src="Imageneshtml/usuario.png" alt="Usuario">
-                    </a>
-                </div>
-               
-                <a href="carrito.html" class="header-button">
-                    <img src="Imageneshtml/carritoo.png" alt="Carrito">
-                </a>
-            </header>
+        
+        <div class="one-header">
+            <script src="./js/navbar.js"></script>
+        </div>
 
-
-            <ul>
-                <li class="active"><a href="catalogoProductos.html">Productos</a></li>
-                <li class="active"><a href="contacto.html">Contacto</a></li>
-                <li class="active"><a href="citas.html">Agendar Cita</a></li>
-                <li class="active"><a href="somos.html">¿Quienes Somos?</a></li>
-                <li class="active"><a href="Dudas.html">Preguntas frecuentes</a></li>
-            </ul>
-        </nav>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
   <main>
     <div class="cart-items">
       <!-- Aquí se agregarán los elementos del carrito -->
@@ -154,93 +123,6 @@ checkoutButton.addEventListener('click', () => {
 document.addEventListener('DOMContentLoaded', initializeCart);
 
   </script>
-
-  <!-- este alch igual no se de que sea, ya estaba cuando llegue jajaja 💀-->
-  <script>
-    document.getElementById('toggleSidebar').addEventListener('click', function () {
-        document.querySelector('.sidebar').classList.toggle('open');
-    });
-    let mostrador = document.getElementById("mostrador");
-    let seleccion = document.getElementById("seleccion");
-    let imgSeleccionada = document.getElementById("img");
-    let modeloSeleccionado = document.getElementById("modelo");
-    let descripSeleccionada = document.getElementById("descripcion");
-    let precioSeleccionado = document.getElementById("precio");
-    let descuentoSeleccionado = document.getElementById("descuento");
-
-    function cargar(item) {
-        quitarBordes();
-        mostrador.style.width = "60%";
-        seleccion.style.width = "40%";
-        seleccion.style.opacity = "1";
-        item.style.border = "2px solid red";
-
-        imgSeleccionada.src = item.getElementsByTagName("img")[0].src;
-
-        modeloSeleccionado.innerHTML = item.getElementsByTagName("p")[0].innerHTML;
-
-        descripSeleccionada.innerHTML = "Descripción del Poducto ";
-
-        precioSeleccionado.innerHTML = item.getElementsByTagName("span")[0].innerHTML;
-
-
-    }
-    function cerrar() {
-        mostrador.style.width = "100%";
-        seleccion.style.width = "0%";
-        seleccion.style.opacity = "0";
-        quitarBordes();
-    }
-    function quitarBordes() {
-        var items = document.getElementsByClassName("item");
-        for (i = 0; i < items.length; i++) {
-            items[i].style.border = "none";
-        }
-    }
-</script>
-
-
-<!-- este we se encarga de que el header se minimice al bajar o navegar en la pagina-->
-<script>
-    window.addEventListener('scroll', function () {
-        var header = document.querySelector('.scroll-header');
-        if (window.scrollY > 100) {
-            header.classList.add('small');
-        } else {
-            header.classList.remove('small');
-        }
-    });
-
-</script>
-
- <!--este es pa cuando se haga clic fuera del banner, este se cierre auto -->
- <script>
-    document.addEventListener('click', function (event) {
-        var sidebar = document.querySelector('.sidebar');
-        var targetElement = event.target;
-
-        if (!sidebar.contains(targetElement) && targetElement.id !== 'toggleSidebar') {
-            sidebar.classList.remove('open');
-        }
-    });
-
-</script>
-
-
-
-
-<script>
-    (() => {
-        function documentReady() {
-          const miElemento = document.getElementById('nombreDeUsuario');
-          miElemento.textContent = localStorage.getItem("nombre");
-          console.log(localStorage.getItem("nombre"));
-        }
-        document.addEventListener('DOMContentLoaded', documentReady);
-      })();
-
-</script>
-
 
 
 </body>

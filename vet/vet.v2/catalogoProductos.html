@@ -6,44 +6,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Veterinaria SAM</title>
-    <link rel="stylesheet" href="estilos/estiloIndex.css">
+    <link rel="stylesheet" href="estilos/app.css">
 </head>
 
 <body>
 
     <div class="container">
-        <nav class="sidebar">
-            <header class="scroll-header">
-                <div class="header-title">
-                    <button id="toggleSidebar">☰</button>
-                    <div class="header-logo">
-                        <a href="index.html">
-                            <img src="Imageneshtml/LogoSAM2.png" alt="Logo">
-                        </a>
-                    </div>
-                </div>
-                <a href="sesion.html" class="header-button">
-                    <img src="Imageneshtml/usuario.png" alt="Usuario">
-                </a>
-                <a href="compras.html" class="header-button">
-                    <img src="Imageneshtml/carritoo.png" alt="Carrito">
-                </a>
-            </header>
-            
 
-
-            <ul>
-                <li class="active"><a href="index.html">Inicio</a></li>
-                <li class="active"><a href="contacto.html">Contacto</a></li>
-                <li class="active"><a href="citas.html">Agendar Cita</a></li>
-                <li class="active"><a href="somos.html">¿Quienes Somos?</a></li>
-                <li class="active"><a href="Dudas.html">Preguntas frecuentes</a></li>
-            </ul>
-        </nav>
-        <br>
-        <br>
-        <br>
-        <br>
+        <div class="one-header">
+            <script src="./js/navbar.js"></script>
+        </div>
 
         <div class="container">
             <section class="info-section">
@@ -366,226 +338,25 @@
 
 
 
-    <!-- este es el script del banner-->
-    <script>
-        const slides = document.querySelectorAll('.slide');
-        let currentSlide = 0;
+<!-- este es el script del banner-->
+<script>
+    const slides = document.querySelectorAll('.slide');
+    let currentSlide = 0;
 
-        function showSlide() {
-            slides[currentSlide].classList.remove('active');
-            currentSlide = (currentSlide + 1) % slides.length;
-            slides[currentSlide].classList.add('active');
-        }
+    function showSlide() {
+        slides[currentSlide].classList.remove('active');
+        currentSlide = (currentSlide + 1) % slides.length;
+        slides[currentSlide].classList.add('active');
+    }
 
-        setInterval(showSlide, 2500);
+    setInterval(showSlide, 2500);
 
-    </script>
-
-
-    <!-- este alch igual no se de que sea, ya estaba cuando llegue jajaja 💀-->
-    <script>
-        document.getElementById('toggleSidebar').addEventListener('click', function () {
-            document.querySelector('.sidebar').classList.toggle('open');
-        });
-        let mostrador = document.getElementById("mostrador");
-        let seleccion = document.getElementById("seleccion");
-        let imgSeleccionada = document.getElementById("img");
-        let modeloSeleccionado = document.getElementById("modelo");
-        let descripSeleccionada = document.getElementById("descripcion");
-        let precioSeleccionado = document.getElementById("precio");
-        let descuentoSeleccionado = document.getElementById("descuento");
-
-        function cargar(item) {
-            quitarBordes();
-            mostrador.style.width = "60%";
-            seleccion.style.width = "40%";
-            seleccion.style.opacity = "1";
-            item.style.border = "2px solid red";
-
-            imgSeleccionada.src = item.getElementsByTagName("img")[0].src;
-
-            modeloSeleccionado.innerHTML = item.getElementsByTagName("p")[0].innerHTML;
-
-            descripSeleccionada.innerHTML = "Descripción del Poducto ";
-
-            precioSeleccionado.innerHTML = item.getElementsByTagName("span")[0].innerHTML;
+</script>
 
 
-        }
-        function cerrar() {
-            mostrador.style.width = "100%";
-            seleccion.style.width = "0%";
-            seleccion.style.opacity = "0";
-            quitarBordes();
-        }
-        function quitarBordes() {
-            var items = document.getElementsByClassName("item");
-            for (i = 0; i < items.length; i++) {
-                items[i].style.border = "none";
-            }
-        }
-    </script>
-
-
-    <!-- este we se encarga de que el header se minimice al bajar o navegar en la pagina-->
-    <script>
-        window.addEventListener('scroll', function () {
-            var header = document.querySelector('.scroll-header');
-            if (window.scrollY > 100) {
-                header.classList.add('small');
-            } else {
-                header.classList.remove('small');
-            }
-        });
-
-    </script>
-
-
-    <!-- script que hace la chamba de desaparecer el perro icono de whats que esta en la derecha inferior-->
-    <script>
-        // Obtener el elemento del ícono de WhatsApp
-        const whatsappIcon = document.querySelector('.whatsapp-icon');
-
-        // Función para verificar la posición del scroll y ocultar el ícono cuando se llega al final
-        function hideWhatsAppIcon() {
-            const scrollPosition = window.scrollY || window.pageYOffset;
-            const windowHeight = window.innerHeight;
-            const documentHeight = Math.max(
-                document.body.scrollHeight,
-                document.documentElement.scrollHeight,
-                document.body.offsetHeight,
-                document.documentElement.offsetHeight,
-                document.body.clientHeight,
-                document.documentElement.clientHeight
-            );
-
-            if (scrollPosition + windowHeight >= documentHeight - 100) {
-                whatsappIcon.style.display = 'none';
-            } else {
-                whatsappIcon.style.display = 'block';
-            }
-        }
-
-        // Ejecutar la función al cargar la página y al hacer scroll
-        window.addEventListener('DOMContentLoaded', hideWhatsAppIcon);
-        window.addEventListener('scroll', hideWhatsAppIcon);
-    </script>
-
-
-    <!--este es pa cuando se haga clic fuera del banner, este se cierre auto -->
-    <script>
-        document.addEventListener('click', function (event) {
-            var sidebar = document.querySelector('.sidebar');
-            var targetElement = event.target;
-
-            if (!sidebar.contains(targetElement) && targetElement.id !== 'toggleSidebar') {
-                sidebar.classList.remove('open');
-            }
-        });
-
-    </script>
-
-
-
-
-    <!-- <script>
-        (() => {
-            function documentReady() {
-              const miElemento = document.getElementById('nombreDeUsuario');
-              miElemento.textContent = localStorage.getItem("nombre");
-              console.log(localStorage.getItem("nombre"));
-            }
-            document.addEventListener('DOMContentLoaded', documentReady);
-          })();
-
-    </script> -->
-
+<script src="./js/product-list.js"></script>
 
 <script>
-
-const productos = [
-  {
-    id: 1,
-    img: "",
-    nombre: 'Collar 1',
-    marca:"dogCat",
-    precio: 10.99,
-    descripcion: 'Descripción del Collar 1'
-  },
-  {
-    id: 2,
-    img: "",
-    nombre: 'Collar 2',
-    marca:"dogCat",
-    precio: 19.99,
-    descripcion: 'Descripción del Collar 2'
-  },
-  {
-    id: 3,
-    img: "",
-    nombre: 'Collar 3',
-    marca:"dogCat",
-    precio: 5.99,
-    descripcion: 'collar para perro raza pequeña 3'
-  },
-  {
-    id: 4,
-    img: "",
-    nombre: 'Collar 4',
-    marca:"dogCat",
-    precio: 5.99,
-    descripcion: 'collar para perro raza pequeña 4'
-  },
-  {
-    id: 5,
-    img: "",
-    nombre: 'Collar 5',
-    marca:"dogCat",
-    precio: 5.99,
-    descripcion: 'collar para perro raza pequeña 5'
-  },
-  {
-    id: 6,
-    img: "",
-    nombre: 'Collar 6',
-    marca:"dogCat",
-    precio: 5.99,
-    descripcion: 'collar para perro raza pequeña 6'
-  },
-  {
-    id: 7,
-    img: "",
-    nombre: 'Collar 7',
-    marca:"dogCat",
-    precio: 5.99,
-    descripcion: 'collar para perro raza pequeña 7'
-  },
-  {
-    id: 8,
-    img: "",
-    nombre: 'Collar 8',
-    marca:"dogCat",
-    precio: 5.99,
-    descripcion: 'collar para perro raza pequeña 8'
-  },
-  {
-    id: 9,
-    img: "",
-    nombre: 'Collar 9',
-    marca:"dogCat",
-    precio: 5.99,
-    descripcion: 'collar para perro raza pequeña 9'
-  },
-  {
-    id: 10,
-    img: "",
-    nombre: 'Collar 10',
-    marca:"dogCat",
-    precio: 5.99,
-    descripcion: 'collar para perro raza pequeña 10'
-  }
-];
-
 // Recorrer el arreglo de productos utilizando forEach()
 const catalogDiv = document.querySelector('.catalog');
 
@@ -597,7 +368,7 @@ productos.forEach((producto) => {
                     </div>
                     <div class="product-info">
                         <h3>${producto.nombre}</h3>
-                        <a href="producto20.html">info</a>
+                        <a href="producto.html?id=${producto.id}">info</a>
                         <p class="product-price">Precio: $${producto.precio}</p>
                         <p>${producto.descripcion}</p>
                         <div class="product-controls">

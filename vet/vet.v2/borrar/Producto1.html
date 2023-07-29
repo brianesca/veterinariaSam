@@ -159,18 +159,7 @@
     </script>
 
 
-    <!-- este we se encarga de que el header se minimice al bajar o navegar en la pagina-->
-    <script>
-        window.addEventListener('scroll', function () {
-            var header = document.querySelector('.scroll-header');
-            if (window.scrollY > 100) {
-                header.classList.add('small');
-            } else {
-                header.classList.remove('small');
-            }
-        });
-
-    </script>
+    
 
 
     <!-- script que hace la chamba de desaparecer el perro icono de whats que esta en la derecha inferior-->
@@ -204,18 +193,11 @@
     </script>
 
 
-    <!--este es pa cuando se haga clic fuera del banner, este se cierre auto -->
-    <script>
-        document.addEventListener('click', function (event) {
-            var sidebar = document.querySelector('.sidebar');
-            var targetElement = event.target;
 
-            if (!sidebar.contains(targetElement) && targetElement.id !== 'toggleSidebar') {
-                sidebar.classList.remove('open');
-            }
-        });
 
-    </script>
+
+
+
 
 
     <!--el contador -->

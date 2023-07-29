@@ -6,34 +6,55 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Veterinaria SAM</title>
-    <link rel="stylesheet" href="estilos/estiloIndex.css">
+    <link rel="stylesheet" href="estilos/app.css">
 </head>
 
 <body>
 
     <div class="container">
-        <nav class="sidebar">
-            <header class="scroll-header">
-                <div class="header-title">
-                    <button id="toggleSidebar">☰</button>
-                    <div class="header-logo">
-                        <a href="index.html">
-                            <img src="Imageneshtml/LogoSAM2.png" alt="Logo">
+
+        <div class="one-header">
+            <script src="./js/navbar.js"></script>
+        </div>
+        
+        
+        <!-- <nav class="sidebar">
+            <header>
+                <div class="scroll-header">
+                    <div class="header-title">
+                        <button id="toggleSidebar" class="desktop toggleSidebar">☰</button>
+                        <div class="header-logo">
+                            <a href="index.html">
+                                <img src="Imageneshtml/LogoSAM2.png" alt="Logo">
+                            </a>
+                        </div>
+                    </div>
+                    <a href="carrito.html" class="header-button desktop">
+                        <img src="Imageneshtml/shopping-cart.svg" alt="Carrito" >
+                    </a>
+                    <div class="menu-icon" onclick="toggleMenu()">
+                        <a href="sesion.html" class="header-button desktop">
+                            <span class="nombreDeUsuario"></span>
+                            <img src="Imageneshtml/usuario.png" alt="Usuario">
                         </a>
                     </div>
                 </div>
-                <div class="menu-icon" onclick="toggleMenu()">
-                    <a href="sesion.html" class="header-button">
-                        <span id="nombreDeUsuario"></span>
-                        <img src="Imageneshtml/usuario.png" alt="Usuario">
-                    </a>
-                </div>
                
-                <a href="carrito.html" class="header-button">
-                    <img src="Imageneshtml/carritoo.png" alt="Carrito">
-                </a>
-            </header>
+                <div class="navbar mobile">
+                    <button id="toggleSidebarMobile" class="toggleSidebar">☰</button>
+                    <a href="carrito.html" class="header-button">
+                        <img src="Imageneshtml/carritoo.png" alt="Carrito">
+                    </a>
+                    <div class="menu-icon" onclick="toggleMenu()">
+                        <a href="sesion.html" class="header-button">
+                            <span class="nombreDeUsuario"></span>
+                            <img src="Imageneshtml/usuario.png" alt="Usuario">
+                        </a>
+                    </div>
+                </div>
 
+            </header>
+            
 
             <ul>
                 <li class="active nav-option-general"><a href="catalogoProductos.html">Productos</a></li>
@@ -42,13 +63,9 @@
                 <li class="active nav-option-general"><a href="somos.html">¿Quienes Somos?</a></li>
                 <li class="active nav-option-general"><a href="Dudas.html">Preguntas frecuentes</a></li>
             </ul>
-        </nav>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
+        </nav> -->
+        
+        
         <div class="slideshow-container">
             <div class="slide">
                 <img src="Imageneshtml/banner1.jpg" alt="Imagen 1">
@@ -102,7 +119,7 @@
         </div>
 
 
-        <main>
+
             <center>
                 <h2>Productos que podrian Interesarte</h2>
                 <a href="catalogoProductos.html" class="buttonMasProductos">▼ Más Productos</a>
@@ -208,7 +225,7 @@
             </section>
 
 
-        </main>
+
 
 
         <center>
@@ -314,67 +331,7 @@
         setInterval(showSlide, 2500);
 
     </script>
-
-
-    <!-- este alch igual no se de que sea, ya estaba cuando llegue jajaja 💀-->
-    <script>
-        document.getElementById('toggleSidebar').addEventListener('click', function () {
-            document.querySelector('.sidebar').classList.toggle('open');
-        });
-        let mostrador = document.getElementById("mostrador");
-        let seleccion = document.getElementById("seleccion");
-        let imgSeleccionada = document.getElementById("img");
-        let modeloSeleccionado = document.getElementById("modelo");
-        let descripSeleccionada = document.getElementById("descripcion");
-        let precioSeleccionado = document.getElementById("precio");
-        let descuentoSeleccionado = document.getElementById("descuento");
-
-        function cargar(item) {
-            quitarBordes();
-            mostrador.style.width = "60%";
-            seleccion.style.width = "40%";
-            seleccion.style.opacity = "1";
-            item.style.border = "2px solid red";
-
-            imgSeleccionada.src = item.getElementsByTagName("img")[0].src;
-
-            modeloSeleccionado.innerHTML = item.getElementsByTagName("p")[0].innerHTML;
-
-            descripSeleccionada.innerHTML = "Descripción del Poducto ";
-
-            precioSeleccionado.innerHTML = item.getElementsByTagName("span")[0].innerHTML;
-
-
-        }
-        function cerrar() {
-            mostrador.style.width = "100%";
-            seleccion.style.width = "0%";
-            seleccion.style.opacity = "0";
-            quitarBordes();
-        }
-        function quitarBordes() {
-            var items = document.getElementsByClassName("item");
-            for (i = 0; i < items.length; i++) {
-                items[i].style.border = "none";
-            }
-        }
-    </script>
-
-
-    <!-- este we se encarga de que el header se minimice al bajar o navegar en la pagina-->
-    <script>
-        window.addEventListener('scroll', function () {
-            var header = document.querySelector('.scroll-header');
-            if (window.scrollY > 100) {
-                header.classList.add('small');
-            } else {
-                header.classList.remove('small');
-            }
-        });
-
-    </script>
-
-
+    
     <!-- script que hace la chamba de desaparecer el perro icono de whats que esta en la derecha inferior-->
     <script>
         // Obtener el elemento del ícono de WhatsApp
@@ -404,22 +361,6 @@
         window.addEventListener('DOMContentLoaded', hideWhatsAppIcon);
         window.addEventListener('scroll', hideWhatsAppIcon);
     </script>
-
-
-    <!--este es pa cuando se haga clic fuera del banner, este se cierre auto -->
-    <script>
-        document.addEventListener('click', function (event) {
-            var sidebar = document.querySelector('.sidebar');
-            var targetElement = event.target;
-
-            if (!sidebar.contains(targetElement) && targetElement.id !== 'toggleSidebar') {
-                sidebar.classList.remove('open');
-            }
-        });
-
-    </script>
-
-
     <!--el contador -->
     <script>
         // Obtener los elementos necesarios
@@ -480,20 +421,6 @@
             });
         });
     </script>
-
-    <script>
-        (() => {
-            function documentReady() {
-              const miElemento = document.getElementById('nombreDeUsuario');
-              miElemento.textContent = localStorage.getItem("nombre");
-              console.log(localStorage.getItem("nombre"));
-            }
-            document.addEventListener('DOMContentLoaded', documentReady);
-          })();
-
-    </script>
-
-      
       
 
 

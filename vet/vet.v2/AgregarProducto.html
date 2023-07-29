@@ -5,46 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Veterinaria SAM</title>
     <link rel="stylesheet" type="text/css" href="estilos/agregar.css">
+    <link rel="stylesheet" href="estilos/app.css">
 </head>
 <body>
     <div class="container">
-        <nav class="sidebar">
-            <header class="scroll-header">
-                <div class="header-title">
-                    <button id="toggleSidebar">☰</button>
-                    <div class="header-logo">
-                        <a href="index.html">
-                            <img src="Imageneshtml/LogoSAM2.png" alt="Logo">
-                        </a>
-                    </div>
-                </div>
-                <div class="menu-icon" onclick="toggleMenu()">
-                    <a href="sesion.html" class="header-button">
-                        <span id="nombreDeUsuario"></span>
-                        <img src="Imageneshtml/usuario.png" alt="Usuario">
-                    </a>
-                </div>
-               
-                <a href="carrito.html" class="header-button">
-                    <img src="Imageneshtml/carritoo.png" alt="Carrito">
-                </a>
-            </header>
 
-            <ul id="nav-options">
-                <li class="active"><a href="catalogoProductos.html">Productos</a></li>
-                <li class="active"><a href="contacto.html">Contacto</a></li>
-                <li class="active"><a href="citas.html">Agendar Cita</a></li>
-                <li class="active"><a href="somos.html">¿Quienes Somos?</a></li>
-                <li class="active"><a href="Dudas.html">Preguntas frecuentes</a></li>
-            </ul>
-        </nav>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
+        <div class="one-header">
+            <script src="./js/navbar.js"></script>
+        </div>
+
         <div class="form-container">
         <h1>Agregar Productos</h1>
         <form id="productForm">
@@ -179,9 +148,6 @@
 
     <!-- este alch igual no se de que sea, ya estaba cuando llegue jajaja 💀-->
     <script>
-        document.getElementById('toggleSidebar').addEventListener('click', function () {
-            document.querySelector('.sidebar').classList.toggle('open');
-        });
         let mostrador = document.getElementById("mostrador");
         let seleccion = document.getElementById("seleccion");
         let imgSeleccionada = document.getElementById("img");
