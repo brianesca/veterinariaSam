@@ -1,11 +1,11 @@
 const productos = [
     {
       id: 1,
-      img: "./Imageneshtml/IMAGEN1.png",
+      img: "./Imageneshtml/IMAGEN 1.png",
       nombre: 'ACTICEF',
       marca:"DVB",
       precio: 150,
-      descripcion: 'Desparasitante para cualquier tipo de animal o mascota'
+      descripcion: 'Desparasitante para cualquier tipo de animal o mascota perro o gato'
     },
     {
       id: 2,
