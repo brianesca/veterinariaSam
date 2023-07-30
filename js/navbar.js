@@ -9,7 +9,7 @@ const contenidoHTML = `
             <button id="toggleSidebar" class="desktop toggleSidebar">☰</button>
             <div class="header-logo">
                 <a href="index.html">
-                    <img src="Imageneshtml/LogoSAM2.png" alt="Logo">
+                    <img src="Imageneshtml/LogoSam2.png" alt="Logo">
                 </a>
             </div>
         </div>
@@ -107,3 +107,6 @@ headerDiv.insertAdjacentHTML('afterbegin', contenidoHTML);
     }
     document.addEventListener('DOMContentLoaded', documentReady);
 })();
+
+
+
