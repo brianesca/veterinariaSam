@@ -126,102 +126,7 @@
             </center>
             <br>
             <section class="catalog">
-                <div class="product">
-                    <div class="product-image">
-                        <img src="Imageneshtml/logoWA.png" alt="Producto 1">
-                    </div>
-                    <div class="product-info">
-                        <h3>collar para perro</h3>
-                        <p class="product-price">Precio: $150</p>
-                        <p>collar para perro raza pequeña</p>
-                        <div class="product-controls">
-                            <button class="quantity-btn minus">-</button>
-                            <input type="number" class="quantity-input" value="1" min="1">
-                            <button class="quantity-btn plus">+</button>
-                            <div class="add-to-cart-container">
-                                <div class="add-to-cart-btn">Agregar al carrito</div>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="product">
-                    <div class="product-image">
-                        <img src="Imageneshtml/logoWA.png" alt="Producto 1">
-                    </div>
-                    <div class="product-info">
-                        <h3>collar para perro</h3>
-                        <p class="product-price">Precio: $150</p>
-                        <p>collar para perro raza pequeña</p>
-                        <div class="product-controls">
-                            <button class="quantity-btn minus">-</button>
-                            <input type="number" class="quantity-input" value="1" min="1">
-                            <button class="quantity-btn plus">+</button>
-                            <div class="add-to-cart-container">
-                                <div class="add-to-cart-btn">Agregar al carrito</div>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="product">
-                    <div class="product-image">
-                        <img src="Imageneshtml/logoWA.png" alt="Producto 1">
-                    </div>
-                    <div class="product-info">
-                        <h3>collar para perro</h3>
-                        <p class="product-price">Precio: $150</p>
-                        <p>collar para perro raza pequeña</p>
-                        <div class="product-controls">
-                            <button class="quantity-btn minus">-</button>
-                            <input type="number" class="quantity-input" value="1" min="1">
-                            <button class="quantity-btn plus">+</button>
-                            <div class="add-to-cart-container">
-                                <div class="add-to-cart-btn">Agregar al carrito</div>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="product">
-                    <div class="product-image">
-                        <img src="Imageneshtml/logoWA.png" alt="Producto 1">
-                    </div>
-                    <div class="product-info">
-                        <h3>collar para perro</h3>
-                        <p class="product-price">Precio: $150</p>
-                        <p>collar para perro raza pequeña</p>
-                        <div class="product-controls">
-                            <button class="quantity-btn minus">-</button>
-                            <input type="number" class="quantity-input" value="1" min="1">
-                            <button class="quantity-btn plus">+</button>
-                            <div class="add-to-cart-container">
-                                <div class="add-to-cart-btn">Agregar al carrito</div>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="product">
-                    <div class="product-image">
-                        <img src="Imageneshtml/logoWA.png" alt="Producto 1">
-                    </div>
-                    <div class="product-info">
-                        <h3>collar para perro</h3>
-                        <p class="product-price">Precio: $150</p>
-                        <p>collar para perro raza pequeña</p>
-                        <div class="product-controls">
-                            <button class="quantity-btn minus">-</button>
-                            <input type="number" class="quantity-input" value="1" min="1">
-                            <button class="quantity-btn plus">+</button>
-                            <div class="add-to-cart-container">
-                                <div class="add-to-cart-btn">Agregar al carrito</div>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
+              
             </section>
 
 
@@ -316,6 +221,44 @@
     </footer>
 
 
+    <script src="./js/product-list.js"></script>
+
+<script>
+// Recorrer el arreglo de productos utilizando forEach()
+const catalogDiv = document.querySelector('.catalog');
+
+const totalProductos = productos.length;
+const maxProductos = 5;
+let productosRecorridos = 0;
+
+productos.forEach((producto) => {
+    if (productosRecorridos < maxProductos) {
+        let prod = `<div class="product">
+                        <div class="product-image">
+                            <img src="${producto.img}" alt="${producto.nombre}">
+                        </div>
+                        <div class="product-info">
+                            <h3>${producto.nombre}</h3>
+                            <a href="producto.html?id=${producto.id}">info</a>
+                            <p class="product-price">Precio: $${producto.precio}</p>
+                            <p>${producto.descripcion}</p>
+                            <div class="product-controls">
+                                <button class="quantity-btn minus">-</button>
+                                <input type="number" class="quantity-input" value="1" min="1">
+                                <button class="quantity-btn plus">+</button>
+                                <div class="add-to-cart-container">
+                                    <div class="add-to-cart-btn" onclick="addToCart(${producto.id})">Agregar al carrito</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>`;
+
+        catalogDiv.insertAdjacentHTML("beforeend", prod);
+        productosRecorridos++;
+    }
+
+});
+</script>
 
     <!-- este es el script del banner-->
     <script>
@@ -420,6 +363,41 @@
                 updateCartCounter();
             });
         });
+
+    function addToCart(id){
+        
+        let carrito = localStorage.getItem('shoppingCart');
+        let producTemp;
+
+        // identificar producto
+        productos.forEach((producto) => {
+            if(producto.id == id) {
+                producTemp = {
+                    id: producto.id,
+                    img: producto.img,
+                    nombre: producto.nombre,
+                    marca: producto.marca,
+                    precio: producto.precio,
+                    descripcion: producto.descripcion
+                };
+            }
+        });
+        
+        if (carrito !== null) {
+            productosObjeto = JSON.parse(carrito);
+            productosObjeto.push(producTemp);
+            console.log( productosObjeto );
+            localStorage.setItem("shoppingCart", JSON.stringify(productosObjeto));
+        } else {
+            let productosObjeto = [];
+            productosObjeto.push(producTemp);
+            console.log( productosObjeto )
+            localStorage.setItem("shoppingCart", JSON.stringify(productosObjeto));
+        }
+        location.reload();
+
+    }
+
     </script>
       
 

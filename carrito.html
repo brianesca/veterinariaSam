@@ -6,24 +6,33 @@
   <title>Carrito de Compras</title>
   <link rel="stylesheet" href="estilos/carrito.css">
   <link rel="stylesheet" href="estilos/app.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
-    <div class="container">
+  <div class="container">
         
-        <div class="one-header">
-            <script src="./js/navbar.js"></script>
-        </div>
+    <div class="one-header">
+        <script src="./js/navbar.js"></script>
+    </div>
 
-  <main>
-    <div class="cart-items">
-      <!-- Aquí se agregarán los elementos del carrito -->
+    <main class="cartcard">
+      <div class="cart-items">
+        <!-- Aquí se agregarán los elementos del carrito -->
+      </div>
+      <div class="cart-total" id="cart-total">
+        <h2>Total: <span id="total-amount">$0</span></h2>
+        <button id="checkout-btn" onclick="buySuccess();">Checkout</button>
+      </div>
+    </main>
+
+    <div id="yourEmptyCart" style="text-align: center; min-height: 250px; display: none;">
+      <i class="fa fa-shopping-cart fa-3x" style="color: #777;" aria-hidden="true"></i>
+      <p style="font-size: 2vw;">Carrito de compras vacío</p>
+      <a href="./index.html" id="checkout-btn">Ir al Inicio</a>
     </div>
-    <div class="cart-total">
-      <h2>Total: <span id="total-amount">$0</span></h2>
-      <button id="checkout-btn">Checkout</button>
-    </div>
-  </main>
-</div>
+
+  </div>
 <br>
 <br>
 <br>
@@ -31,10 +40,7 @@
 <br>
 <br>
 <br>
-<br>
-<br>
-<br>
-<br>
+
 
 <footer>
     <div class="footer-container">
@@ -63,97 +69,110 @@
     </div>
 </footer>
 
-
-
-
-  <script>
-    // Lista de elementos del carrito (simulación)
-// const cartItems = [
-// { id: 1, name: 'Producto 1', price: 10, image: 'product1.jpg' },
-// { id: 2, name: 'Producto 2', price: 15, image: 'product2.jpg' },
-// { id: 3, name: 'Producto 3', price: 20, image: 'product3.jpg' }
-// ];
-
-// // Función para mostrar los elementos del carrito
-// function showCartItems() {
-// const cartItemsContainer = document.querySelector('.cart-items');
-// cartItemsContainer.innerHTML = '';
-
-// let totalAmount = 0;
-
-// cartItems.forEach(item => {
-//   const cartItemElement = document.createElement('div');
-//   cartItemElement.classList.add('cart-item');
-
-//   const itemImage = document.createElement('img');
-//   itemImage.src = item.image;
-//   cartItemElement.appendChild(itemImage);
-
-//   const itemName = document.createElement('span');
-//   itemName.textContent = item.name;
-//   itemName.classList.add('cart-item-name');
-//   cartItemElement.appendChild(itemName);
-
-//   const itemPrice = document.createElement('span');
-//   itemPrice.textContent = `$${item.price}`;
-//   itemPrice.classList.add('cart-item-price');
-//   cartItemElement.appendChild(itemPrice);
-
-//   cartItemsContainer.appendChild(cartItemElement);
-
-//   totalAmount += item.price;
-// });
-
-// const totalAmountElement = document.getElementById('total-amount');
-// totalAmountElement.textContent = `$${totalAmount}`;
-// }
-
-// // Función para inicializar el carrito
-// function initializeCart() {
-// showCartItems();
-
-// const checkoutButton = document.getElementById('checkout-btn');
-// checkoutButton.addEventListener('click', () => {
-//   alert('Gracias por tu compra');
-//   // Aquí podrías agregar la lógica para procesar el pago y realizar la compra
-// });
-// }
-
-// Inicializar el carrito cuando la página cargue
-// document.addEventListener('DOMContentLoaded', initializeCart);
-
-  </script>
-
   <script>
 
-    function loadShoppingCart(){ 
+    function deleteItem(id) {
+      Swal.fire({
+          title: '¿Estas seguro?',
+          text: "¡Se eliminara el producto del carrito!",
+          icon: 'warning',
+          showCancelButton: true,
+          confirmButtonColor: '#f90',
+          cancelButtonColor: '#d33',
+          confirmButtonText: '¡Sí, bórralo!'
+          // dangerMode: true,
+      }).then(function(confirm) {
+          if (confirm.isConfirmed) {
+            let carrito = localStorage.getItem('shoppingCart');
+            let carritoObjeto = JSON.parse(carrito);
+
+            if (carritoObjeto !== null) {
+              // Filtrar el arreglo para excluir el elemento con el id proporcionado
+              carritoObjeto = carritoObjeto.filter((product) => product.id !== id);
+              localStorage.setItem('shoppingCart', JSON.stringify(carritoObjeto));
+              location.reload();
+            }
+          }
+      });
+    }
+
+    function emptyCart() {
+      Swal.fire({
+          title: '¿Estas seguro?',
+          text: "¡Se vaciará todo el carrito!",
+          icon: 'warning',
+          showCancelButton: true,
+          confirmButtonColor: '#f90',
+          cancelButtonColor: '#d33',
+          confirmButtonText: '¡Sí, bórralo!'
+          // dangerMode: true,
+      }).then(function(confirm) {
+          if (confirm.isConfirmed) {
+            let carrito = localStorage.removeItem('shoppingCart');
+            location.reload();
+          }
+      });
+    }
+
+    function buySuccess(){
+      Swal.fire({
+          title: '!Compra realizada con éxito!',
+          text: "",
+          icon: 'success',
+          showCancelButton: false,
+          confirmButtonColor: '#f90',
+          cancelButtonColor: '#d33',
+          confirmButtonText: 'Ok'
+      }).then(function(confirm) {
+          if (confirm.isConfirmed) {
+            let carrito = localStorage.removeItem('shoppingCart');
+            location.reload();
+          }
+      });
+    }
+
+    function loadShoppingCart(){
         
         let carrito = localStorage.getItem('shoppingCart');
         let carritoObjeto = JSON.parse(carrito);
         const productCartDiv = document.querySelector('.cart-items');
         let totalAmount = 0;
-        console.log(carrito);
-        if (carrito !== null) {
+        console.log(carritoObjeto);
+  
+        if (carritoObjeto !== null) {
+          carritoObjeto.forEach((product) => {
 
-            carritoObjeto.forEach((product) => {
+              const productCartHTML = `
+              <div class="cart-item">
+                  <img src="${product.img}">
+                  <span class="cart-item-name">${product.nombre}</span>
+                  <span class="cart-item-price">$${product.precio} <i class="fa fa-trash btn-trash" onclick="deleteItem(${product.id});"></i></span>
+              </div>
+              `;
+              productCartDiv.insertAdjacentHTML('afterbegin', productCartHTML);
+              totalAmount += product.precio;
 
-                const productCartHTML = `
-                <div class="cart-item">
-                    <img src="${product.img}">
-                    <span class="cart-item-name">${product.nombre}</span>
-                    <span class="cart-item-price">$${product.precio}</span>
-                </div>
-                `;
-                productCartDiv.insertAdjacentHTML('afterbegin', productCartHTML);
-                totalAmount += product.precio;
+          });
+          const totalAmountElement = document.getElementById('total-amount');
+          totalAmountElement.textContent = `$${parseFloat(totalAmount.toFixed(2))}`;
 
-            });
-            const totalAmountElement = document.getElementById('total-amount');
-            totalAmountElement.textContent = `$${parseFloat(totalAmount.toFixed(2))}`;
+          if(Object.keys(carritoObjeto).length !== 0){
+            const btnEmptyCart = `
+                <button id="empty-cart-btn" onclick="emptyCart();"><i class="fa fa-trash"></i> Vaciar carrito</button>
+              `;
+            productCartDiv.insertAdjacentHTML('beforeend', btnEmptyCart);
+          }
+        } else {
+          
+          const totalCart = document.getElementById("cart-total");
+          totalCart.style.display = "none";
+          const theyEmptyCart = document.getElementById("yourEmptyCart");
+          theyEmptyCart.style.display = "block";
+
         }
     }
     loadShoppingCart();
-
+    
   </script>
 
 

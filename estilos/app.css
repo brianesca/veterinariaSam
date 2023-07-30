@@ -182,6 +182,22 @@ h1 {
     /* Modifica el margen horizontal para acercar las opciones */
 }
 
+.header-button-container {
+    position: relative;
+}
+.badge {
+    position: absolute;
+    top: -5px;
+    right: -10px;
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    padding: 3px;
+    font-size: 12px;
+    min-width: 14px;
+    text-align: center;
+}
+
 .header-button img {
     width: 45px;
     filter: grayscale(100%);
@@ -1125,6 +1141,53 @@ BARRA NAVEGACION
     width:100%;
     height:auto;
 }
+
+
+/* Estilos para el contenedor principal */
+.cartcard {
+    display: flex;
+  }
+  
+  /* Estilos para la sección de productos */
+  .cart-items {
+    flex: 2; /* Ocupa 2/3 del espacio */
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px; /* Espacio entre los productos, puedes ajustarlo según necesites */
+  }
+  
+
+  
+  /* Estilos para la sección del resumen */
+  .cart-total {
+    flex: 1; /* Ocupa 1/3 del espacio */
+    background-color: #e8e8e8;
+    padding: 10px;
+    box-sizing: border-box;
+  }
+  
+  /* Otros estilos */
+  .resumen-info {
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .boton-pago {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .boton-pago:hover {
+    background-color: #45a049;
+  }
 
 
 .mobile{

@@ -13,9 +13,12 @@ const contenidoHTML = `
                 </a>
             </div>
         </div>
-        <a href="carrito.html" class="header-button desktop">
-            <img src="Imageneshtml/shopping-cart.svg" alt="Carrito" >
-        </a>
+        <div class="header-button desktop ">
+            <a href="carrito.html" class="header-button-container">
+                <img src="Imageneshtml/shopping-cart.svg" alt="Carrito" >
+                <span class="badge" style="display:none;">0</span>
+            </a>
+        </div>
         <div class="menu-icon" onclick="toggleMenu()">
             <a href="sesion.html" class="header-button desktop">
                 <span class="nombreDeUsuario"></span>
@@ -26,9 +29,12 @@ const contenidoHTML = `
    
     <div class="navbar mobile">
         <button id="toggleSidebarMobile" class="toggleSidebar">☰</button>
-        <a href="carrito.html" class="header-button">
-            <img src="Imageneshtml/carritoo.png" alt="Carrito">
-        </a>
+        <div class="header-button">
+            <a href="carrito.html" class="header-button-container">
+                <img src="Imageneshtml/shopping-cart.svg" alt="Carrito" >
+                <span class="badge" style="display:none;">0</span>
+            </a>
+        </div>
         <div class="menu-icon" onclick="toggleMenu()">
             <a href="sesion.html" class="header-button">
                 <span class="nombreDeUsuario"></span>
@@ -104,6 +110,37 @@ headerDiv.insertAdjacentHTML('afterbegin', contenidoHTML);
         for (let i = 0; i < misElementos.length; i++) {
             misElementos[i].textContent = localStorage.getItem("nombre");
         }
+
+
+        
+        let carrito = localStorage.getItem('shoppingCart');
+        let carritoObjeto = JSON.parse(carrito);
+        let totalItems = 0;
+    
+        if (carritoObjeto !== null) {
+            carritoObjeto.forEach((product) => {
+                totalItems += 1;
+            });
+            if(totalItems != 0){
+                const misBadges = document.getElementsByClassName('badge');
+                for (let i = 0; i < misBadges.length; i++) {
+                    misBadges[i].textContent = totalItems;
+                    misBadges[i].style.display = 'block';
+                }
+            } else {
+                const misBadges = document.getElementsByClassName('badge');
+                for (let i = 0; i < misBadges.length; i++) {
+                    misBadges[i].style.display = 'none';
+                }
+            }
+        } else {
+            const misBadges = document.getElementsByClassName('badge');
+            for (let i = 0; i < misBadges.length; i++) {
+                misBadges[i].style.display = 'none';
+            }
+        }
+
+
     }
     document.addEventListener('DOMContentLoaded', documentReady);
 })();
