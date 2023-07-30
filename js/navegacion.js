@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const navOptions = document.querySelector('.sidebar ul');
     const userEmail = localStorage.getItem('email');
 
-    if (userEmail === 'test5@gmail.com') {
+    if (userEmail === 'adminsam@gmail.com') {
         navOptions.innerHTML = `
             <li><a href="index.html" style="font-size: 1.5vw;">Inicio</a></li>
             <li style="margin-top: 10%;"><a href="AgregarProducto.html" style= "font-size: 1.5vw;">Agregar productos</a></li>
